@@ -6,9 +6,13 @@ Aplicatie de gestionare a prezentelor
 
 
 Tehnologii:
+
 -Java Spring REST API.
+
 -REACT.js
+
 -Postgre SQL/Microsoft SQL/My SQL WorkBench
+
 
 
 
