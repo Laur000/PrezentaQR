@@ -17,6 +17,8 @@ Tehnologii:
 
 
 
+
+
 Link pentru Task Board
 https://trello.com/invite/b/GfK1Wq88/181e47de1549c8484c144118962adc92/proiect-qr
 
