@@ -30,4 +30,18 @@ public class PrezentaQrUnitTests {
         StudentDTO studentDTO = prezentaQRService.getStudentData(loginRequest);
         assertEquals("Andrei", studentDTO.getFirstName());
     }
+
+    @Test
+    public void shouldReturnProfData() {
+        //TODO
+    }
+
+    @Test
+    public void shouldReturnNullWithBadPassword() {
+        //TODO
+    }
+
+    public void dtoMapperTest() {
+        //TODO
+    }
 }

@@ -10,6 +10,7 @@ import com.qrteam.QResent.dto.StudentDTO;
 import com.qrteam.QResent.models.Profesor;
 import com.qrteam.QResent.models.Student;
 import com.qrteam.QResent.service.PrezentaQRService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +23,14 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     @Autowired
     ProfesorData profesorDataRepo;
 
+    @Autowired
+    ModelMapper modelMapper;
+
     @Override
     public StudentDTO getStudentData(LoginRequestDTO loginRequest){
         Student student = studentDataRepo.getStudentDataByEmail(loginRequest.getEmail());
         if (student != null && student.getParola().equals(loginRequest.getPassword())) {
-            return toStudentDto(student);
+            return modelMapper.map(student, StudentDTO.class);
         }
         return null;
     }
@@ -35,7 +39,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     public ProfesorDTO getProfesorData(LoginRequestDTO loginRequest){
         Profesor profesor = profesorDataRepo.getProfesorDataByEmail(loginRequest.getEmail());
         if (profesor != null && profesor.getParola().equals(loginRequest.getPassword())) {
-            return toProfesorDto(profesor);
+            return modelMapper.map(profesor, ProfesorDTO.class);
         }
         return null;
     }
