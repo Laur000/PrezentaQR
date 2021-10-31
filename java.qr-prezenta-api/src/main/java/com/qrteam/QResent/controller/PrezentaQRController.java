@@ -7,7 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 public class PrezentaQRController {
@@ -15,7 +18,7 @@ public class PrezentaQRController {
     @Autowired
     PrezentaQRChoreographer prezentaQRChoreographer;
 
-    @PostMapping("/get-student-data")
+    @RequestMapping(value = "/get-student-data", method = POST, produces = "application/json")
     ResponseEntity<String> getStudentData(@RequestBody int id) {
         return new ResponseEntity<>(prezentaQRChoreographer.getStudentData(id), HttpStatus.OK);
     }
