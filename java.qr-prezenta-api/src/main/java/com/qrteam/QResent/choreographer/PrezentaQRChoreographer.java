@@ -8,4 +8,7 @@ public class PrezentaQRChoreographer {
     @Autowired
     PrezentaQRService prezentaQRService;
 
+    public String getQRData(int id){
+        return "Hai ca merge... " + id;
+    }
 }
