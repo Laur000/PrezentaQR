@@ -19,7 +19,7 @@ public class PrezentaQRController {
     PrezentaQRChoreographer prezentaQRChoreographer;
 
     @RequestMapping(value = "/get-student-data", method = POST, produces = "application/json")
-    ResponseEntity<String> getStudentData(@RequestBody int id) {
+    ResponseEntity<String> getStudentData(@RequestBody String id) {
         return new ResponseEntity<>(prezentaQRChoreographer.getStudentData(id), HttpStatus.OK);
     }
 

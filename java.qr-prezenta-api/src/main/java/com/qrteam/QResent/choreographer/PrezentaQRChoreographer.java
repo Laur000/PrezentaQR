@@ -11,7 +11,7 @@ public class PrezentaQRChoreographer {
     @Autowired
     PrezentaQRService prezentaQRService;
 
-    public String getStudentData(int id){
+    public String getStudentData(String id){
         return "Hai ca merge student... " + id;
     }
 
