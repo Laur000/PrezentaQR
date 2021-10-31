@@ -1,5 +1,9 @@
 package com.qrteam.QResent.models;
 
+
+import javax.persistence.Entity;
+
+@Entity
 public class Curs {
     private Integer cursId;
     private String nume;
