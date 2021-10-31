@@ -1,7 +1,11 @@
 import React from "react";
 import { AppShell, Navbar, Header } from "@mantine/core";
+import { Route} from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import NavbarContent from "./NavbarContent";
+import CalendarPage from "../CalendarPage/CalendarPage";
+import HomePage from "../HomePage/HomePage";
+import AttendancePage from "../AttendancePage/AttendancePage";
 
 const Dashboard = () => {
   const [user, setUser] = React.useContext(UserContext);
@@ -16,7 +20,7 @@ const Dashboard = () => {
       }
       header={
         <Header height={60} padding="xs">
-          {/* Header content */}
+          <button onClick={() => setUser(null)}>sign out</button>
         </Header>
       }
       styles={(theme) => ({
@@ -28,8 +32,9 @@ const Dashboard = () => {
         },
       })}
     >
-      <p> Welcome back, {user && user.username} </p>
-      <button onClick={() => setUser(null)}>sign out</button>
+      <Route path="/dashboard/" exact component={HomePage} />
+      <Route path="/dashboard/attendance" exact component={AttendancePage} />
+      <Route path="/dashboard/calendar" exact component={CalendarPage} />
     </AppShell>
   );
 };
