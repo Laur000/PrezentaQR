@@ -1,4 +1,4 @@
-package models;
+package com.qrteam.QResent.models;
 
 public class Materie {
     private Integer id;

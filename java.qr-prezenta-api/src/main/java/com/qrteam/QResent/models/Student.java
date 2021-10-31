@@ -1,4 +1,4 @@
-package models;
+package com.qrteam.QResent.models;
 
 import java.util.List;
 
