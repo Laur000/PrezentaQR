@@ -9,7 +9,16 @@ const LoginForm = (props) => {
             
             <TextInput className={styles.field} placeholder="Username" label="Username" required />
             <PasswordInput className={styles.field} label="Password" placeholder="Password" required />
-            <Button color="violet" radius="lg" uppercase fullWidth>
+            <Button color="violet" radius="lg" uppercase fullWidth onClick={() => {
+                const requestOptions = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id:'1'})
+                };
+                fetch('http://localhost:8080/get-student-data',requestOptions)
+                .then(response => response.json())
+                .then(data => console.log(data));
+            }}>
                 login
             </Button>
         </div>
