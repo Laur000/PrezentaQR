@@ -13,6 +13,7 @@ public class PrezentaQRChoreographer {
     PrezentaQRService prezentaQRService;
 
     public String getStudentData(LoginRequestDTO loginRequest){
+        prezentaQRService.getStudentData(loginRequest);
         return "Hai ca merge student...  email " + loginRequest.getEmail() +" si parola:"+ loginRequest.getPassword();
     }
 
