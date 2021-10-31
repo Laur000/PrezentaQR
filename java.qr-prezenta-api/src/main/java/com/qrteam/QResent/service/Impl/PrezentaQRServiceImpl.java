@@ -49,23 +49,4 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
         AdminDTO adminDTO = new AdminDTO();
         return  adminDTO;
     }
-
-    private StudentDTO toStudentDto(Student student) {
-        StudentDTO dto = new StudentDTO();
-        dto.setCnp(student.getCnp());
-        dto.setEmail(student.getEmail());
-        dto.setFirstName(student.getFirstName());
-        dto.setLastName(student.getLastName());
-        dto.setYearOfStudy(student.getYearOfStudy());
-        return dto;
-    }
-
-    private ProfesorDTO toProfesorDto(Profesor profesor) {
-        ProfesorDTO dto = new ProfesorDTO();
-        dto.setCnp(profesor.getCnp());
-        dto.setEmail(profesor.getEmail());
-        dto.setFirstName(profesor.getFirstName());
-        dto.setLastName(profesor.getLastName());
-        return dto;
-    }
 }
