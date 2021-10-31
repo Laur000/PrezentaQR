@@ -1,8 +1,14 @@
 package com.qrteam.QResent.models;
 
+
+import javax.persistence.Entity;
+import java.util.List;
+
+@Entity
 public class Materie {
     private Integer id;
     private String nume;
+    private List<Curs> cursuri;
 
     public Materie() {
 
