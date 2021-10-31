@@ -2,6 +2,7 @@ package com.qrteam.QResent.dto;
 
 import com.qrteam.QResent.models.Materie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDTO {
@@ -10,19 +11,19 @@ public class StudentDTO {
     private String lastName;
     private String email;
     private int yearOfStudy;
-    private List<Materie> materie;
+    private List<Materie> materii;
 
     public StudentDTO() {
 
     }
 
-    public StudentDTO(String cnp, String firstName, String lastName, String email, int yearOfStudy, List<Materie> materie) {
+    public StudentDTO(String cnp, String firstName, String lastName, String email, int yearOfStudy) {
         this.cnp = cnp;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.yearOfStudy = yearOfStudy;
-        this.materie = materie;
+        this.materii = new ArrayList<>();
     }
 
 
@@ -66,12 +67,24 @@ public class StudentDTO {
         this.yearOfStudy = yearOfStudy;
     }
 
-    public List<Materie> getMaterie() {
-        return materie;
+    public List<Materie> getMaterii() {
+        return materii;
     }
 
-    public void setMaterie(List<Materie> materie) {
-        this.materie = materie;
+    public void setMaterii(List<Materie> materii) {
+        this.materii = materii;
+    }
+
+    public void addMaterie(Materie materie) {
+        this.materii.add(materie);
+    }
+
+    public void removeMaterie(Integer id) {
+        for (Materie materie : materii) {
+            if (materie.getId() == id) {
+                materii.remove(materie);
+            }
+        }
     }
 }
 

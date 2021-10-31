@@ -73,7 +73,7 @@ public class ProfesorDTO {
     public void removeMaterie(Integer id) {
         for (Materie materie : materii) {
             if (materie.getId() == id) {
-                materii.remove(materie);
+                this.materii.remove(materie);
             }
         }
     }
