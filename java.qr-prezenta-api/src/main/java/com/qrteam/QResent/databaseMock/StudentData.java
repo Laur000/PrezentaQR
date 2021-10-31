@@ -24,6 +24,15 @@ public class StudentData {
 
     }
 
+    public Student getStudentDataByEmail(String email) {
+        for (Student student : students) {
+            if (student.getEmail().equals(email)) {
+                return student;
+            }
+        }
+        return null;
+    }
+
     public StudentData() {
         init();
     }
