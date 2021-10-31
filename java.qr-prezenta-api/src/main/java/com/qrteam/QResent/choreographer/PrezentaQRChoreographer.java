@@ -15,11 +15,11 @@ public class PrezentaQRChoreographer {
         return "Hai ca merge student... " + id;
     }
 
-    public String getProfesorData(int id){
+    public String getProfesorData(String id){
         return "Hai ca merge profesor... " + id;
     }
 
-    public String getAdminData(int id){
+    public String getAdminData(String id){
         return "Hai ca merge admin... " + id;
     }
 }
