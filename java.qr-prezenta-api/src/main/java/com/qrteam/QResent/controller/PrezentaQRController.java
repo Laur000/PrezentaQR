@@ -3,6 +3,8 @@ package com.qrteam.QResent.controller;
 
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
 import com.qrteam.QResent.dto.LoginRequestDTO;
+import com.qrteam.QResent.dto.ProfesorDTO;
+import com.qrteam.QResent.dto.StudentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +20,12 @@ public class PrezentaQRController {
     PrezentaQRChoreographer prezentaQRChoreographer;
 
     @PostMapping("/get-student-data")
-    public ResponseEntity<String> getStudentData(@RequestBody LoginRequestDTO loginRequest) {
+    public ResponseEntity<StudentDTO> getStudentData(@RequestBody LoginRequestDTO loginRequest) {
         return new ResponseEntity<>(prezentaQRChoreographer.getStudentData(loginRequest), HttpStatus.OK);
     }
 
     @PostMapping("/get-profesor-data")
-    ResponseEntity<String> getProfesorData(@RequestBody LoginRequestDTO loginRequest) {
+    ResponseEntity<ProfesorDTO> getProfesorData(@RequestBody LoginRequestDTO loginRequest) {
         return new ResponseEntity<>(prezentaQRChoreographer.getProfesorData(loginRequest), HttpStatus.OK);
     }
 
