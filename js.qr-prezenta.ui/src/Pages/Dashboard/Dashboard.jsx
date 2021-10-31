@@ -2,6 +2,7 @@ import React from "react";
 import { AppShell, Navbar, Header } from "@mantine/core";
 import { UserContext } from "../../context/UserContext";
 import NavbarContent from "./NavbarContent";
+import HeaderContent from "./HeaderContent/HeaderContent";
 
 const Dashboard = () => {
   const [user, setUser] = React.useContext(UserContext);
@@ -16,7 +17,7 @@ const Dashboard = () => {
       }
       header={
         <Header height={60} padding="xs">
-          {/* Header content */}
+          <HeaderContent />
         </Header>
       }
       styles={(theme) => ({
