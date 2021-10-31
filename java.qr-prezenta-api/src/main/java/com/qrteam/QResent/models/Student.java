@@ -11,19 +11,17 @@ public class Student extends Utilizator {
     private String lastName;
     private String email;
     private int yearOfStudy;
-    private List<Materie> materie;
 
     public Student() {
 
     }
 
-    public Student(String cnp, String firstName, String lastName, String email, int yearOfStudy, List<Materie> materie) {
+    public Student(String cnp, String firstName, String lastName, String email, int yearOfStudy) {
         this.cnp = cnp;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.yearOfStudy = yearOfStudy;
-        this.materie = materie;
     }
 
 
@@ -67,11 +65,4 @@ public class Student extends Utilizator {
         this.yearOfStudy = yearOfStudy;
     }
 
-    public List<Materie> getMaterie() {
-        return materie;
-    }
-
-    public void setMaterie(List<Materie> materie) {
-        this.materie = materie;
-    }
 }

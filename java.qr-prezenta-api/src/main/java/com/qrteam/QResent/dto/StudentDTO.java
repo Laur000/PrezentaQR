@@ -1,27 +1,30 @@
-package com.qrteam.QResent.models;
+package com.qrteam.QResent.dto;
 
+import com.qrteam.QResent.models.Materie;
 
-import javax.persistence.Entity;
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-public class Profesor extends Utilizator {
+public class StudentDTO {
     private String cnp;
     private String firstName;
     private String lastName;
     private String email;
+    private int yearOfStudy;
+    private List<Materie> materie;
 
-    public Profesor() {
+    public StudentDTO() {
 
     }
 
-    public Profesor(String cnp, String firstName, String lastName, String email) {
+    public StudentDTO(String cnp, String firstName, String lastName, String email, int yearOfStudy, List<Materie> materie) {
         this.cnp = cnp;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.yearOfStudy = yearOfStudy;
+        this.materie = materie;
     }
+
 
     public String getCnp() {
         return cnp;
@@ -55,5 +58,20 @@ public class Profesor extends Utilizator {
         this.email = email;
     }
 
+    public int getYearOfStudy() {
+        return yearOfStudy;
+    }
 
+    public void setYearOfStudy(int yearOfStudy) {
+        this.yearOfStudy = yearOfStudy;
+    }
+
+    public List<Materie> getMaterie() {
+        return materie;
+    }
+
+    public void setMaterie(List<Materie> materie) {
+        this.materie = materie;
+    }
 }
+
