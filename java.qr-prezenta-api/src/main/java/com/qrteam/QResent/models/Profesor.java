@@ -1,7 +1,10 @@
 package com.qrteam.QResent.models;
 
-public class Profesor {
-    private Integer profesorID;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Profesor extends Utilizator {
     private String cnp;
     private String firstName;
     private String lastName;
@@ -12,8 +15,7 @@ public class Profesor {
 
     }
 
-    public Profesor(Integer profesorID, String cnp, String firstName, String lastName, String email, Materie materie) {
-        this.profesorID = profesorID;
+    public Profesor(String cnp, String firstName, String lastName, String email, Materie materie) {
         this.cnp = cnp;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -21,13 +23,6 @@ public class Profesor {
         this.materie = materie;
     }
 
-    public Integer getProfesorID() {
-        return profesorID;
-    }
-
-    public void setProfesorID(Integer profesorID) {
-        this.profesorID = profesorID;
-    }
 
     public String getCnp() {
         return cnp;
