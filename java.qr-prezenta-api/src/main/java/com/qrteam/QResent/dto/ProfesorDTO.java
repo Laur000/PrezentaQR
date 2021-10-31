@@ -11,8 +11,6 @@ public class ProfesorDTO {
     private String lastName;
     private String email;
 
-    private List<Materie> materii;
-
     public ProfesorDTO() {
 
     }
@@ -22,7 +20,6 @@ public class ProfesorDTO {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.materii = new ArrayList<>();
     }
 
 
@@ -58,23 +55,4 @@ public class ProfesorDTO {
         this.email = email;
     }
 
-    public List<Materie> getMaterii() {
-        return materii;
-    }
-
-    public void setMaterii(List<Materie> materii) {
-        this.materii = materii;
-    }
-
-    public void addMaterie(Materie materie) {
-        this.materii.add(materie);
-    }
-
-    public void removeMaterie(Integer id) {
-        for (Materie materie : materii) {
-            if (materie.getId() == id) {
-                this.materii.remove(materie);
-            }
-        }
-    }
 }

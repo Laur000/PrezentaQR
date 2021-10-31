@@ -11,7 +11,6 @@ public class StudentDTO {
     private String lastName;
     private String email;
     private int yearOfStudy;
-    private List<Materie> materii;
 
     public StudentDTO() {
 
@@ -23,7 +22,6 @@ public class StudentDTO {
         this.lastName = lastName;
         this.email = email;
         this.yearOfStudy = yearOfStudy;
-        this.materii = new ArrayList<>();
     }
 
 
@@ -65,26 +63,6 @@ public class StudentDTO {
 
     public void setYearOfStudy(int yearOfStudy) {
         this.yearOfStudy = yearOfStudy;
-    }
-
-    public List<Materie> getMaterii() {
-        return materii;
-    }
-
-    public void setMaterii(List<Materie> materii) {
-        this.materii = materii;
-    }
-
-    public void addMaterie(Materie materie) {
-        this.materii.add(materie);
-    }
-
-    public void removeMaterie(Integer id) {
-        for (Materie materie : materii) {
-            if (materie.getId() == id) {
-                materii.remove(materie);
-            }
-        }
     }
 }
 
