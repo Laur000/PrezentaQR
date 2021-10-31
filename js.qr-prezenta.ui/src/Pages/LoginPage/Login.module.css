@@ -1,18 +1,17 @@
-.container{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.title{
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
 }
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 250px;
-    max-width: 500px;
+
+.loginForm {
+  width: 100%;
 }
