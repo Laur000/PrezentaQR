@@ -1,6 +1,7 @@
 package com.qrteam.QResent.service.Impl;
 
 
+import com.qrteam.QResent.dto.AdminDTO;
 import com.qrteam.QResent.dto.ProfesorDTO;
 import com.qrteam.QResent.dto.StudentDTO;
 import com.qrteam.QResent.service.PrezentaQRService;
@@ -21,9 +22,10 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
         return profesorDTO;
     }
 
-//    @Override
-//    public AdminDTO getAdminData(int id){
-//
-//    }
+    @Override
+    public AdminDTO getAdminData(int id){
+        AdminDTO adminDTO = new AdminDTO();
+        return  adminDTO;
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.qrteam.QResent.service;
 
 
+import com.qrteam.QResent.dto.AdminDTO;
 import com.qrteam.QResent.dto.ProfesorDTO;
 import com.qrteam.QResent.dto.StudentDTO;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,6 @@ public interface PrezentaQRService{
 
     public ProfesorDTO getProfesorData(int id);
 
-//    public AdminDto getStudentData(int id);
+    public AdminDTO getAdminData(int id);
 
 }
