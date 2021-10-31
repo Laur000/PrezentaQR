@@ -58,7 +58,8 @@ const LoginForm = (props) => {
                 onChange={event => setFormData(prev => ({ ...prev, password: event.target.value }))}
             />
             <Button
-                color="violet"
+                variant="gradient"
+                gradient={{from:"teal", to:"#2b8a3e"}}
                 radius="lg"
                 uppercase
                 fullWidth
