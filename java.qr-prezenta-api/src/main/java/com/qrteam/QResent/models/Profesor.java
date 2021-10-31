@@ -8,17 +8,19 @@ public class Profesor extends Utilizator {
     private String cnp;
     private String firstName;
     private String lastName;
-    private String email;
+
 
     public Profesor() {
+        super();
 
     }
 
-    public Profesor(String cnp, String firstName, String lastName, String email) {
+    public Profesor(String cnp, String firstName, String lastName, String email, String parola) {
+        super(email, parola);
         this.cnp = cnp;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+
     }
 
     public String getCnp() {
@@ -43,14 +45,6 @@ public class Profesor extends Utilizator {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 }

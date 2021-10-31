@@ -2,9 +2,9 @@ package com.qrteam.QResent.models;
 
 
 import javax.persistence.Entity;
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 public class Materie {
     private Integer id;
     private String nume;
@@ -17,6 +17,7 @@ public class Materie {
     public Materie(Integer id, String nume) {
         this.id = id;
         this.nume = nume;
+        cursuri = new ArrayList<>();
     }
 
     public Integer getId() {
