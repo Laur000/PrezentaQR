@@ -2,25 +2,24 @@ package com.qrteam.QResent.models;
 
 import javax.persistence.Entity;
 
-
 @Entity
 public class Student extends Utilizator {
     private String cnp;
     private String firstName;
     private String lastName;
-    private String email;
     private int yearOfStudy;
 
     public Student() {
 
     }
 
-    public Student(String cnp, String firstName, String lastName, String email, int yearOfStudy) {
+    public Student(String cnp, String firstName, String lastName, String email, int yearOfStudy, String parola) {
+        super(email, parola);
         this.cnp = cnp;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
         this.yearOfStudy = yearOfStudy;
+
     }
 
 
