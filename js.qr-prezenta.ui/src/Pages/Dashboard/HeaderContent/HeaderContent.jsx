@@ -1,9 +1,8 @@
 import React from "react";
-import { LightningBoltIcon } from "@modulz/radix-icons";
 import { UserContext } from "../../../context/UserContext";
 import { Avatar, ThemeIcon, Menu } from "@mantine/core";
 import styles from "./HeaderContent.module.css";
-import { ExitIcon } from "@radix-ui/react-icons";
+import { ExitIcon, LightningBoltIcon} from "@radix-ui/react-icons";
 
 const HeaderContent = () => {
   const [user, setUser] = React.useContext(UserContext);
