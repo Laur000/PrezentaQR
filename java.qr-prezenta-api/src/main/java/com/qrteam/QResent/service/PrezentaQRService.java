@@ -12,7 +12,7 @@ public interface PrezentaQRService{
 
     public StudentDTO getStudentData(LoginRequestDTO loginRequestDTO);
 
-    public ProfesorDTO getProfesorData(int id);
+    public ProfesorDTO getProfesorData(LoginRequestDTO loginRequestDTO);
 
     public AdminDTO getAdminData(int id);
 

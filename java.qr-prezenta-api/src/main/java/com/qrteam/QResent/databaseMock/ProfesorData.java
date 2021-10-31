@@ -26,4 +26,13 @@ public class ProfesorData {
     public ProfesorData() {
         init();
     }
+
+    public Profesor getProfesorDataByEmail(String email) {
+        for (Profesor profesor : profesori) {
+            if (profesor.getEmail().equals(email)) {
+                return profesor;
+            }
+        }
+        return null;
+    }
 }
