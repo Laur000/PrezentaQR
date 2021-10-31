@@ -6,6 +6,7 @@ import NavbarContent from "./NavbarContent";
 import CalendarPage from "../CalendarPage/CalendarPage";
 import HomePage from "../HomePage/HomePage";
 import AttendancePage from "../AttendancePage/AttendancePage";
+import HeaderContent from "./HeaderContent/HeaderContent";
 
 const Dashboard = () => {
   const [user, setUser] = React.useContext(UserContext);
@@ -20,7 +21,7 @@ const Dashboard = () => {
       }
       header={
         <Header height={60} padding="xs">
-          <button onClick={() => setUser(null)}>sign out</button>
+          <HeaderContent />
         </Header>
       }
       styles={(theme) => ({
