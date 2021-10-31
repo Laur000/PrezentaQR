@@ -27,6 +27,7 @@ const LoginForm = (props) => {
                     })
     };
 
+    
     const validateStudentEmail = (email) => {
         var re = /^([a-zA-Z0-9_.-]{3,})+@facultate+\.stud+\.+ro+$/;
         return re.test(email);
