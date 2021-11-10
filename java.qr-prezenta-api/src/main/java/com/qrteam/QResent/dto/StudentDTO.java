@@ -1,8 +1,5 @@
 package com.qrteam.QResent.dto;
 
-import com.qrteam.QResent.models.Materie;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDTO {
@@ -11,6 +8,7 @@ public class StudentDTO {
     private String lastName;
     private String email;
     private int yearOfStudy;
+    List<Integer> materii;
 
     public StudentDTO() {
 
@@ -22,6 +20,7 @@ public class StudentDTO {
         this.lastName = lastName;
         this.email = email;
         this.yearOfStudy = yearOfStudy;
+        materii = null;
     }
 
 
@@ -63,6 +62,14 @@ public class StudentDTO {
 
     public void setYearOfStudy(int yearOfStudy) {
         this.yearOfStudy = yearOfStudy;
+    }
+
+    public List<Integer> getMaterii() {
+        return materii;
+    }
+
+    public void setMaterii(List<Integer> materii) {
+        this.materii = materii;
     }
 }
 

@@ -72,24 +72,48 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
         return materie.getNume();
     }
 
+
     @Override
     public List<MaterieDTO> getProfDisciplines(String email) {
         Profesor profesor = new Profesor();
         profesor = profesorDataRepo.getProfesorDataByEmail(email);
-        List<MaterieDTO> materii = new ArrayList<>();
+        if (profesor != null) {
+            List<MaterieDTO> materii = new ArrayList<>();
 
-        for (Integer id : profesor.getMaterii()) {
-            MaterieDTO materieDTO = new MaterieDTO();
-            Materie mat = new Materie();
-            mat = materieDataRepo.findMaterieById(id);
+            for (Integer id : profesor.getMaterii()) {
+                MaterieDTO materieDTO = new MaterieDTO();
+                Materie mat = new Materie();
+                mat = materieDataRepo.findMaterieById(id);
 
-            materieDTO.setId(mat.getId());
-            materieDTO.setNume(mat.getNume());
-            materieDTO.setDetalii(mat.getDetalii());
-            materieDTO.setCursuri(new ArrayList<CursDTO>());
-            materii.add(materieDTO);
+                materieDTO.setId(mat.getId());
+                materieDTO.setNume(mat.getNume());
+                materieDTO.setDetalii(mat.getDetalii());
+                materieDTO.setCursuri(new ArrayList<>());
+                materii.add(materieDTO);
+            }
+            return materii;
         }
-        return materii;
+        return null;
+    }
+
+    @Override
+    public List<MaterieDTO> getStudentDisciplines(String email) {
+        Student student = studentDataRepo.getStudentDataByEmail(email);
+        if (student != null) {
+            List<MaterieDTO> materii = new ArrayList<>();
+
+            for (Integer id : student.getMaterii()) {
+                MaterieDTO materieDTO = new MaterieDTO();
+                Materie mat = materieDataRepo.findMaterieById(id);
+                materieDTO.setId(mat.getId());
+                materieDTO.setNume(mat.getNume());
+                materieDTO.setDetalii(mat.getDetalii());
+                materieDTO.setCursuri(new ArrayList<>());
+                materii.add(materieDTO);
+            }
+            return materii;
+        }
+        return null;
     }
 
     @Override

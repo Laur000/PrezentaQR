@@ -1,6 +1,7 @@
 package com.qrteam.QResent.models;
 
 import javax.persistence.Entity;
+import java.util.List;
 
 @Entity
 public class Student extends Utilizator {
@@ -8,6 +9,7 @@ public class Student extends Utilizator {
     private String firstName;
     private String lastName;
     private int yearOfStudy;
+    private List<Integer> materii;
 
     public Student() {
 
@@ -55,4 +57,11 @@ public class Student extends Utilizator {
         this.yearOfStudy = yearOfStudy;
     }
 
+    public List<Integer> getMaterii() {
+        return materii;
+    }
+
+    public void setMaterii(List<Integer> materii) {
+        this.materii = materii;
+    }
 }

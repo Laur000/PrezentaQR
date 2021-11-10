@@ -2,19 +2,16 @@ package com.qrteam.QResent.controller;
 
 
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
-import com.qrteam.QResent.dto.CursDTO;
-import com.qrteam.QResent.dto.LoginRequestDTO;
-import com.qrteam.QResent.dto.MaterieDTO;
-import com.qrteam.QResent.dto.ProfesorDTO;
-import com.qrteam.QResent.dto.StudentDTO;
+import com.qrteam.QResent.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 @CrossOrigin
@@ -46,6 +43,11 @@ public class PrezentaQRController {
     @PostMapping("/get-prof-disciplines")
     ResponseEntity<List<MaterieDTO>> getDisciplines(@RequestBody String email) {
         return new ResponseEntity<>(prezentaQRChoreographer.getProfDisciplines(email), HttpStatus.OK);
+    }
+
+    @PostMapping("/get-student-disciplines")
+    ResponseEntity<List<MaterieDTO>> getStudentDisciplines(@RequestBody String email) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getStduentDisciplines(email), HttpStatus.OK);
     }
 
     @PostMapping("/get-courses")

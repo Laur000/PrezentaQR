@@ -19,5 +19,7 @@ public interface PrezentaQRService{
 
     public List<MaterieDTO> getProfDisciplines(String email);
 
+    public List<MaterieDTO> getStudentDisciplines(String email);
+
     List<CursDTO> getCourses(Integer disciplineId);
 }
