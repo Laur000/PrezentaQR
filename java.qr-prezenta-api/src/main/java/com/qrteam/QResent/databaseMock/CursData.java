@@ -14,6 +14,7 @@ public class CursData {
     public void init(){
         cursuri = new ArrayList<>();
 
+        cursuri.add(new Curs(0, "CursAstronomie1", "detalii"));
         cursuri.add(new Curs(1, "CursAnatomie1", "detalii"));
         cursuri.add(new Curs(2, "CursAnatomie2", "detalii"));
         cursuri.add(new Curs(3, "CursAnatomie3", "detalii"));
@@ -55,5 +56,13 @@ public class CursData {
     }
     public CursData() {
         init();
+    }
+
+    public List<Curs> getCursuri() {
+        return cursuri;
+    }
+
+    public void setCursuri(List<Curs> cursuri) {
+        this.cursuri = cursuri;
     }
 }

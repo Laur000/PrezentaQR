@@ -14,11 +14,11 @@ public class Materie {
 
     }
 
-    public Materie(Integer id, String nume, String detalii) {
+    public Materie(Integer id, String nume, String detalii, List<Curs> cursuri) {
         this.id = id;
         this.nume = nume;
         this.detalii = detalii;
-        cursuri = new ArrayList<>();
+        this.cursuri = cursuri;
     }
 
     public Integer getId() {
