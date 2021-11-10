@@ -43,7 +43,7 @@ public class PrezentaQRController {
         return new ResponseEntity<>(prezentaQRChoreographer.saveDiscipline(materie, emailProfesor), HttpStatus.OK);
     }
 
-    @PostMapping("/get-disciplines")
+    @PostMapping("/get-prof-disciplines")
     ResponseEntity<List<MaterieDTO>> getDisciplines(@RequestBody String email) {
         return new ResponseEntity<>(prezentaQRChoreographer.getProfDisciplines(email), HttpStatus.OK);
     }
