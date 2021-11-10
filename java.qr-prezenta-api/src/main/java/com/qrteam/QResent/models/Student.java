@@ -15,12 +15,13 @@ public class Student extends Utilizator {
 
     }
 
-    public Student(String cnp, String firstName, String lastName, String email, int yearOfStudy, String parola) {
+    public Student(String cnp, String firstName, String lastName, String email, int yearOfStudy, String parola, List<Integer> materii) {
         super(email, parola);
         this.cnp = cnp;
         this.firstName = firstName;
         this.lastName = lastName;
         this.yearOfStudy = yearOfStudy;
+        this.materii = materii;
 
     }
 
