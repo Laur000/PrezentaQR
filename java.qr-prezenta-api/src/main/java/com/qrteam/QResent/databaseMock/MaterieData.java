@@ -21,7 +21,10 @@ public class MaterieData {
         materii = new ArrayList<>();
         CursData cursData = new CursData();
 
-        List<Curs> cursuri =  Arrays.asList(cursData.getCursuri().get(1),cursData.getCursuri().get(2),cursData.getCursuri().get(3));
+        List<Curs> cursuri =  new ArrayList<>();
+        cursuri.add(cursData.getCursuri().get(1));
+        cursuri.add(cursData.getCursuri().get(2));
+        cursuri.add(cursData.getCursuri().get(3));
         materii.add(new Materie(0, "Anatomie","Frumoasa materia\nCerinte minime de intrare in examen: 50pct\nBonusuri: n-avem\nOrar: LUNI 18:00-20:00\n JOI 12:00-15:00",cursuri));
         cursuri =  Arrays.asList(cursData.getCursuri().get(4),cursData.getCursuri().get(5),cursData.getCursuri().get(6));
         materii.add(new Materie(1, "Geografie","Frumoasa materia\nCerinte minime de intrare in examen: 45pct\nBonusuri:2\nOrar: MARTI 18:00-20:00\n JOI 10:00-12:00",cursuri));
