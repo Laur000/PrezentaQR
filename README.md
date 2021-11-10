@@ -26,3 +26,6 @@ https://trello.com/invite/b/GfK1Wq88/181e47de1549c8484c144118962adc92/proiect-qr
 
 Schita flux adaugare materie si curs
 ![Schita flux adaugare materie si curs](https://user-images.githubusercontent.com/56819922/141153808-fca769f5-9fa6-4704-ab71-0c65bebf5f03.png)
+
+Schita fluxuri student
+![Schita fluxuri student](https://user-images.githubusercontent.com/56819922/141158992-8f11f104-fe3d-4242-afde-743592c434ce.png)
