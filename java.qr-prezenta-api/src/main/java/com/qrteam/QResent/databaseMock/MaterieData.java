@@ -57,12 +57,12 @@ public class MaterieData {
         init();
     }
 
-    public Materie findCursByMaterieId(Integer materieId) {
-//        materii.forEach(materie -> {
-//            if (Objects.equals(materie.getId(), materieId)) {
-//                return materie;
-//            }
-//        });
+    public Materie findById(Integer disciplineId) {
+        for (Materie materie: materii) {
+            if (Objects.equals(materie.getId(), disciplineId)) {
+                return materie;
+            }
+        }
         return null;
     }
 }

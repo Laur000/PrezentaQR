@@ -41,7 +41,7 @@ public class PrezentaQRChoreographer {
         return prezentaQRService.getProfDisciplines(email);
     }
 
-    public List<CursDTO> getCourses(Integer disciplineId) {
+    public List<CursDTO> getProfCourses(Integer disciplineId) {
         return prezentaQRService.getCourses(disciplineId);
     }
 }

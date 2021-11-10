@@ -49,7 +49,7 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/get-courses")
-    ResponseEntity<List<CursDTO>> getCourses(@RequestBody Integer disciplineId) {
-        return new ResponseEntity<>(prezentaQRChoreographer.getCourses(disciplineId), HttpStatus.OK);
+    ResponseEntity<List<CursDTO>> getProfCourses(@RequestBody Integer disciplineId) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getProfCourses(disciplineId), HttpStatus.OK);
     }
 }

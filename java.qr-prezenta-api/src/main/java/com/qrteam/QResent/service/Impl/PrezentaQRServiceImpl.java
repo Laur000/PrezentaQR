@@ -6,6 +6,7 @@ import com.qrteam.QResent.databaseMock.MaterieData;
 import com.qrteam.QResent.databaseMock.ProfesorData;
 import com.qrteam.QResent.databaseMock.StudentData;
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.models.Curs;
 import com.qrteam.QResent.models.Materie;
 import com.qrteam.QResent.models.Profesor;
 import com.qrteam.QResent.models.Student;
@@ -93,9 +94,14 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
 
     @Override
     public List<CursDTO> getCourses(Integer disciplineId) {
-//        materieData.getMaterii().forEach(materie -> {
-//
-//        });
+        List<CursDTO> cursDTOList = new ArrayList<>();
+        Materie materie = materieData.findById(disciplineId);
+        if (materie != null) {
+            for (Curs curs : materie.getCursuri()) {
+                cursDTOList.add(modelMapper.map(curs, CursDTO.class));
+            }
+            return cursDTOList;
+        }
         return null;
     }
 }
