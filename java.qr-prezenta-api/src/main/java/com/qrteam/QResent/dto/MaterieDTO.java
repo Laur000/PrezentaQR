@@ -9,6 +9,7 @@ public class MaterieDTO {
     private String nume;
     private String detalii;
     private List<Curs> cursuri;
+    private List<CursDTO> cursuri;
 
     public String getDetalii() {
         return detalii;
@@ -34,11 +35,11 @@ public class MaterieDTO {
         this.nume = nume;
     }
 
-    public List<Curs> getCursuri() {
+    public List<CursDTO> getCursuri() {
         return cursuri;
     }
 
-    public void setCursuri(List<Curs> cursuri) {
+    public void setCursuri(List<CursDTO> cursuri) {
         this.cursuri = cursuri;
     }
 }
