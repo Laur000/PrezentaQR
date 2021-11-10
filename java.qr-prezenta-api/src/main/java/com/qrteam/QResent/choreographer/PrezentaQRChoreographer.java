@@ -33,12 +33,12 @@ public class PrezentaQRChoreographer {
         return "Hai ca merge admin...   email " + loginRequest.getEmail() +" si parola:"+ loginRequest.getPassword();
     }
 
-    public String saveDiscipline(MaterieDTO materie){
-        return prezentaQRService.saveDiscipline(materie);
+    public String saveDiscipline(MaterieDTO materie, String emailProfesor){
+        return prezentaQRService.saveDiscipline(materie, emailProfesor);
     }
 
-    public List<MaterieDTO> getDisciplines(String cnp){
-        return prezentaQRService.getDisciplines(cnp);
+    public List<MaterieDTO> getProfDisciplines(String email){
+        return prezentaQRService.getProfDisciplines(email);
     }
 
     public List<CursDTO> getCourses(Integer disciplineId) {

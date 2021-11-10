@@ -49,4 +49,11 @@ public class Profesor extends Utilizator {
         this.lastName = lastName;
     }
 
+    public List<Integer> getMaterii() {
+        return materii;
+    }
+
+    public void setMaterii(List<Integer> materii) {
+        this.materii = materii;
+    }
 }

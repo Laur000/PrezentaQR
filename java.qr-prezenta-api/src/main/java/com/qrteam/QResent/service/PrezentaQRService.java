@@ -15,9 +15,9 @@ public interface PrezentaQRService{
 
     public AdminDTO getAdminData(int id);
 
-    public String saveDiscipline(MaterieDTO materie);
+    public String saveDiscipline(MaterieDTO materie, String emailProfesor);
 
-    public List<MaterieDTO> getDisciplines(String cnp);
+    public List<MaterieDTO> getProfDisciplines(String email);
 
     List<CursDTO> getCourses(Integer disciplineId);
 }

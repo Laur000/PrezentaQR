@@ -36,6 +36,15 @@ public class MaterieData {
         this.materii.add(materieNoua);
     }
 
+    public Materie findMaterieById(Integer id){
+        for(Materie m: this.materii){
+            if(id == m.getId()){
+                return m;
+            }
+        }
+        return null;
+    }
+
     public List<Materie> getMaterii() {
         return materii;
     }

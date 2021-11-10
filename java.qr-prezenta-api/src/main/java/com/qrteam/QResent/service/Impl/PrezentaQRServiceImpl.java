@@ -6,6 +6,7 @@ import com.qrteam.QResent.databaseMock.MaterieData;
 import com.qrteam.QResent.databaseMock.ProfesorData;
 import com.qrteam.QResent.databaseMock.StudentData;
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.models.Materie;
 import com.qrteam.QResent.models.Profesor;
 import com.qrteam.QResent.models.Student;
 import com.qrteam.QResent.service.PrezentaQRService;
@@ -13,6 +14,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,7 +39,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     CursData cursData;
 
     @Override
-    public StudentDTO getStudentData(LoginRequestDTO loginRequest){
+    public StudentDTO getStudentData(LoginRequestDTO loginRequest) {
         Student student = studentDataRepo.getStudentDataByEmail(loginRequest.getEmail());
         if (student != null && student.getParola().equals(loginRequest.getPassword())) {
             return modelMapper.map(student, StudentDTO.class);
@@ -46,7 +48,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
-    public ProfesorDTO getProfesorData(LoginRequestDTO loginRequest){
+    public ProfesorDTO getProfesorData(LoginRequestDTO loginRequest) {
         Profesor profesor = profesorDataRepo.getProfesorDataByEmail(loginRequest.getEmail());
         if (profesor != null && profesor.getParola().equals(loginRequest.getPassword())) {
             return modelMapper.map(profesor, ProfesorDTO.class);
@@ -55,20 +57,38 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
-    public AdminDTO getAdminData(int id){
+    public AdminDTO getAdminData(int id) {
         AdminDTO adminDTO = new AdminDTO();
-        return  adminDTO;
+        return adminDTO;
     }
 
     @Override
-    public String saveDiscipline(MaterieDTO materie){
+    public String saveDiscipline(MaterieDTO materie, String email) {
         materieDataRepo.addMaterie(materie);
+        Profesor profesor = new Profesor();
+        profesor = profesorDataRepo.getProfesorDataByEmail(email);
+        profesor.getMaterii().add(materie.getId());
         return materie.getNume();
     }
 
     @Override
-    public List<MaterieDTO> getDisciplines(String cnp){
-        return null;
+    public List<MaterieDTO> getProfDisciplines(String email) {
+        Profesor profesor = new Profesor();
+        profesor = profesorDataRepo.getProfesorDataByEmail(email);
+        List<MaterieDTO> materii = new ArrayList<>();
+
+        for (Integer id : profesor.getMaterii()) {
+            MaterieDTO materieDTO = new MaterieDTO();
+            Materie mat = new Materie();
+            mat = materieDataRepo.findMaterieById(id);
+
+            materieDTO.setId(mat.getId());
+            materieDTO.setNume(mat.getNume());
+            materieDTO.setDetalii(mat.getDetalii());
+            materieDTO.setCursuri(new ArrayList<CursDTO>());
+            materii.add(materieDTO);
+        }
+        return materii;
     }
 
     @Override

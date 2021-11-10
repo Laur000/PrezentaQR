@@ -39,13 +39,13 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/save-discipline")
-    ResponseEntity<String> saveDiscipline(@RequestBody MaterieDTO materie) {
-        return new ResponseEntity<>(prezentaQRChoreographer.saveDiscipline(materie), HttpStatus.OK);
+    ResponseEntity<String> saveDiscipline(@RequestBody MaterieDTO materie, String emailProfesor) {
+        return new ResponseEntity<>(prezentaQRChoreographer.saveDiscipline(materie, emailProfesor), HttpStatus.OK);
     }
 
     @PostMapping("/get-disciplines")
-    ResponseEntity<List<MaterieDTO>> getDisciplines(@RequestBody String cnp) {
-        return new ResponseEntity<>(prezentaQRChoreographer.getDisciplines(cnp), HttpStatus.OK);
+    ResponseEntity<List<MaterieDTO>> getDisciplines(@RequestBody String email) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getProfDisciplines(email), HttpStatus.OK);
     }
 
     @PostMapping("/get-courses")
