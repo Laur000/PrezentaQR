@@ -56,7 +56,7 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/save-course")
-    ResponseEntity<String> saveCourse(@RequestBody CursDTO cursDTO, Integer disciplineId) {
-        return new ResponseEntity<>(prezentaQRChoreographer.saveCourse(cursDTO, disciplineId), HttpStatus.OK);
+    ResponseEntity<String> saveCourse(@RequestBody SaveCourseDTO saveCourseDTO) {
+        return new ResponseEntity<>(prezentaQRChoreographer.saveCourse(saveCourseDTO.getCursDTO(), saveCourseDTO.getDisciplineId()), HttpStatus.OK);
     }
 }
