@@ -34,9 +34,6 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     ModelMapper modelMapper;
 
     @Autowired
-    MaterieData materieData;
-
-    @Autowired
     CursData cursData;
 
     @Override
@@ -70,6 +67,17 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
         profesor = profesorDataRepo.getProfesorDataByEmail(email);
         profesor.getMaterii().add(materie.getId());
         return materie.getNume();
+    }
+
+    @Override
+    public String saveCourse(CursDTO cursDTO, Integer disciplineId) {
+        Materie materie = materieDataRepo.findById(disciplineId);
+        if (materie == null) {
+            return null;
+        } else {
+            materie.getCursuri().add(modelMapper.map(cursDTO, Curs.class));
+            return cursDTO.getNume();
+        }
     }
 
     @Override
@@ -115,7 +123,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     @Override
     public List<CursDTO> getCourses(Integer disciplineId) {
         List<CursDTO> cursDTOList = new ArrayList<>();
-        Materie materie = materieData.findById(disciplineId);
+        Materie materie = materieDataRepo.findById(disciplineId);
         if (materie != null) {
             for (Curs curs : materie.getCursuri()) {
                 cursDTOList.add(modelMapper.map(curs, CursDTO.class));

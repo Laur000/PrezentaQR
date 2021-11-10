@@ -42,4 +42,8 @@ public class PrezentaQRChoreographer {
     public List<CursDTO> getProfCourses(Integer disciplineId) {
         return prezentaQRService.getCourses(disciplineId);
     }
+
+    public String saveCourse(CursDTO cursDTO, Integer disciplineId) {
+        return prezentaQRService.saveCourse(cursDTO, disciplineId);
+    }
 }
