@@ -2,6 +2,7 @@ package PezentaQrServiceTest;
 
 import com.qrteam.QResent.databaseMock.StudentData;
 import com.qrteam.QResent.dto.LoginRequestDTO;
+import com.qrteam.QResent.dto.ProfesorDTO;
 import com.qrteam.QResent.dto.StudentDTO;
 import com.qrteam.QResent.service.Impl.PrezentaQRServiceImpl;
 import com.qrteam.QResent.service.PrezentaQRService;
@@ -21,7 +22,7 @@ public class PrezentaQrUnitTests {
     @Autowired
     PrezentaQRService prezentaQRService;
 
-    @Test
+/*    @Test
     public void shouldReturnStudentData() {
         LoginRequestDTO loginRequest = new LoginRequestDTO();
         loginRequest.setEmail("emailpentrufacultatefake1@facultate.stud.ro");
@@ -30,16 +31,25 @@ public class PrezentaQrUnitTests {
         StudentDTO studentDTO = prezentaQRService.getStudentData(loginRequest);
         assertEquals("Andrei", studentDTO.getFirstName());
     }
-
-    @Test
+      @Test
     public void shouldReturnProfData() {
-        //TODO
-    }
+        LoginRequestDTO loginRequest = new LoginRequestDTO();
+        loginRequest.setEmail("emailpentrufacultateprof1@facultate.prof.ro");
+        loginRequest.setPassword("parolaprof1");
 
-    @Test
+        ProfesorDTO profesorDTO = prezentaQRService.getProfesorData(loginRequest);
+        assertEquals("Ion", profesorDTO.getFirstName());
+    }*/
+
+   /* @Test
     public void shouldReturnNullWithBadPassword() {
-        //TODO
-    }
+        LoginRequestDTO loginRequest = new LoginRequestDTO();
+        loginRequest.setEmail("email.prof.ro");
+        loginRequest.setPassword("parolaneparola");
+
+        ProfesorDTO profesorDTO = prezentaQRService.getProfesorData(loginRequest);
+        assertEquals(null, profesorDTO);
+          }*/
 
     public void dtoMapperTest() {
         //TODO
