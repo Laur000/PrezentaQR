@@ -1,11 +1,10 @@
 package com.qrteam.QResent.service;
 
 
-import com.qrteam.QResent.dto.AdminDTO;
-import com.qrteam.QResent.dto.LoginRequestDTO;
-import com.qrteam.QResent.dto.ProfesorDTO;
-import com.qrteam.QResent.dto.StudentDTO;
+import com.qrteam.QResent.dto.*;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface PrezentaQRService{
@@ -15,5 +14,9 @@ public interface PrezentaQRService{
     public ProfesorDTO getProfesorData(LoginRequestDTO loginRequestDTO);
 
     public AdminDTO getAdminData(int id);
+
+    public String saveDiscipline(MaterieDTO materie);
+
+    public List<MaterieDTO> getDisciplines(String cnp);
 
 }

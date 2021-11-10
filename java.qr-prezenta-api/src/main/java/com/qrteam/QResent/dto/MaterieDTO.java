@@ -7,7 +7,16 @@ import java.util.List;
 public class MaterieDTO {
     private Integer id;
     private String nume;
+    private String detalii;
     private List<Curs> cursuri;
+
+    public String getDetalii() {
+        return detalii;
+    }
+
+    public void setDetalii(String detalii) {
+        this.detalii = detalii;
+    }
 
     public Integer getId() {
         return id;

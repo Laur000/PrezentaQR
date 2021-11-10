@@ -10,7 +10,7 @@ public class ProfesorDTO {
     private String firstName;
     private String lastName;
     private String email;
-
+    private List<Integer> materii;
     public ProfesorDTO() {
 
     }
@@ -20,6 +20,7 @@ public class ProfesorDTO {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.materii = new ArrayList<>();
     }
 
 
@@ -55,4 +56,11 @@ public class ProfesorDTO {
         this.email = email;
     }
 
+    public List<Integer> getMaterii() {
+        return materii;
+    }
+
+    public void setMaterii(List<Integer> materii) {
+        this.materii = materii;
+    }
 }

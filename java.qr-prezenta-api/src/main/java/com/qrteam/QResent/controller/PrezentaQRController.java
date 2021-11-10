@@ -3,12 +3,15 @@ package com.qrteam.QResent.controller;
 
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
 import com.qrteam.QResent.dto.LoginRequestDTO;
+import com.qrteam.QResent.dto.MaterieDTO;
 import com.qrteam.QResent.dto.ProfesorDTO;
 import com.qrteam.QResent.dto.StudentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -32,6 +35,16 @@ public class PrezentaQRController {
     @PostMapping("/get-admin-data")
     ResponseEntity<String> getAdminData(@RequestBody LoginRequestDTO loginRequest) {
         return new ResponseEntity<>(prezentaQRChoreographer.getAdminData(loginRequest), HttpStatus.OK);
+    }
+
+    @PostMapping("/save-discipline")
+    ResponseEntity<String> saveDiscipline(@RequestBody MaterieDTO materie) {
+        return new ResponseEntity<>(prezentaQRChoreographer.saveDiscipline(materie), HttpStatus.OK);
+    }
+
+    @PostMapping("/get-disciplines")
+    ResponseEntity<List<MaterieDTO>> getDisciplines(@RequestBody String cnp) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getDisciplines(cnp), HttpStatus.OK);
     }
 
 

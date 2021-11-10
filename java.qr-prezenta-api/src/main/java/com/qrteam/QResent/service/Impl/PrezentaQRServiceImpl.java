@@ -1,18 +1,18 @@
 package com.qrteam.QResent.service.Impl;
 
 
+import com.qrteam.QResent.databaseMock.MaterieData;
 import com.qrteam.QResent.databaseMock.ProfesorData;
 import com.qrteam.QResent.databaseMock.StudentData;
-import com.qrteam.QResent.dto.AdminDTO;
-import com.qrteam.QResent.dto.LoginRequestDTO;
-import com.qrteam.QResent.dto.ProfesorDTO;
-import com.qrteam.QResent.dto.StudentDTO;
+import com.qrteam.QResent.dto.*;
 import com.qrteam.QResent.models.Profesor;
 import com.qrteam.QResent.models.Student;
 import com.qrteam.QResent.service.PrezentaQRService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PrezentaQRServiceImpl implements PrezentaQRService {
@@ -22,6 +22,9 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
 
     @Autowired
     ProfesorData profesorDataRepo;
+
+    @Autowired
+    MaterieData materieDataRepo;
 
     @Autowired
     ModelMapper modelMapper;
@@ -48,5 +51,16 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     public AdminDTO getAdminData(int id){
         AdminDTO adminDTO = new AdminDTO();
         return  adminDTO;
+    }
+
+    @Override
+    public String saveDiscipline(MaterieDTO materie){
+        materieDataRepo.addMaterie(materie);
+        return materie.getNume();
+    }
+
+    @Override
+    public List<MaterieDTO> getDisciplines(String cnp){
+
     }
 }
