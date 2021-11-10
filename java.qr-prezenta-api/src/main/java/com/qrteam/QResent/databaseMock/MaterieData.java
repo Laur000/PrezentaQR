@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Repository
@@ -45,5 +46,14 @@ public class MaterieData {
 
     public MaterieData() {
         init();
+    }
+
+    public Materie findCursByMaterieId(Integer materieId) {
+//        materii.forEach(materie -> {
+//            if (Objects.equals(materie.getId(), materieId)) {
+//                return materie;
+//            }
+//        });
+        return null;
     }
 }

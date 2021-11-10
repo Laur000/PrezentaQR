@@ -2,6 +2,7 @@ package com.qrteam.QResent.controller;
 
 
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
+import com.qrteam.QResent.dto.CursDTO;
 import com.qrteam.QResent.dto.LoginRequestDTO;
 import com.qrteam.QResent.dto.MaterieDTO;
 import com.qrteam.QResent.dto.ProfesorDTO;
@@ -47,5 +48,8 @@ public class PrezentaQRController {
         return new ResponseEntity<>(prezentaQRChoreographer.getDisciplines(cnp), HttpStatus.OK);
     }
 
-
+    @PostMapping("/get-courses")
+    ResponseEntity<List<CursDTO>> getCourses(@RequestBody Integer disciplineId) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getCourses(disciplineId), HttpStatus.OK);
+    }
 }

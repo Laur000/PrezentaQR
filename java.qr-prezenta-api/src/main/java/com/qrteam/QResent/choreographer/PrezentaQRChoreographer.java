@@ -1,5 +1,6 @@
 package com.qrteam.QResent.choreographer;
 
+import com.qrteam.QResent.dto.CursDTO;
 import com.qrteam.QResent.dto.LoginRequestDTO;
 import com.qrteam.QResent.dto.MaterieDTO;
 import com.qrteam.QResent.dto.ProfesorDTO;
@@ -38,5 +39,9 @@ public class PrezentaQRChoreographer {
 
     public List<MaterieDTO> getDisciplines(String cnp){
         return prezentaQRService.getDisciplines(cnp);
+    }
+
+    public List<CursDTO> getCourses(Integer disciplineId) {
+        return prezentaQRService.getCourses(disciplineId);
     }
 }

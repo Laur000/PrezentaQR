@@ -8,7 +8,6 @@ public class MaterieDTO {
     private Integer id;
     private String nume;
     private String detalii;
-    private List<Curs> cursuri;
     private List<CursDTO> cursuri;
 
     public String getDetalii() {

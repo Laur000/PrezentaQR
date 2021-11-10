@@ -1,6 +1,7 @@
 package com.qrteam.QResent.service.Impl;
 
 
+import com.qrteam.QResent.databaseMock.CursData;
 import com.qrteam.QResent.databaseMock.MaterieData;
 import com.qrteam.QResent.databaseMock.ProfesorData;
 import com.qrteam.QResent.databaseMock.StudentData;
@@ -28,6 +29,12 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
 
     @Autowired
     ModelMapper modelMapper;
+
+    @Autowired
+    MaterieData materieData;
+
+    @Autowired
+    CursData cursData;
 
     @Override
     public StudentDTO getStudentData(LoginRequestDTO loginRequest){
@@ -61,6 +68,14 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
 
     @Override
     public List<MaterieDTO> getDisciplines(String cnp){
+        return null;
+    }
 
+    @Override
+    public List<CursDTO> getCourses(Integer disciplineId) {
+//        materieData.getMaterii().forEach(materie -> {
+//
+//        });
+        return null;
     }
 }

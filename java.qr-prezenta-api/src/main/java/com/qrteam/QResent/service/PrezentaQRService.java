@@ -19,4 +19,5 @@ public interface PrezentaQRService{
 
     public List<MaterieDTO> getDisciplines(String cnp);
 
+    List<CursDTO> getCourses(Integer disciplineId);
 }
