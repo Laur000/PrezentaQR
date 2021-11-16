@@ -72,10 +72,8 @@ public class PrezentaQRController {
         return new ResponseEntity<>(prezentaQRChoreographer.saveAttendance(attendance), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/print", produces = "application/pdf")
+    @PostMapping("/export-attendance-list")
     ResponseEntity<String> print(@RequestBody Integer cursId) {
-        return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"listaPrezenta\"")
-                .body(prezentaQRChoreographer.print(cursId));
+        return new ResponseEntity<>(prezentaQRChoreographer.print(cursId), HttpStatus.OK);
     }
 }
