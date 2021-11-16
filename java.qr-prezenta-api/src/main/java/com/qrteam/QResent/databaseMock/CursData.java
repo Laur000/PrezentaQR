@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class CursData {
@@ -101,7 +102,35 @@ public class CursData {
         return cursuri;
     }
 
+    public Curs findCursById(Integer courseId){
+        for (Curs curs: cursuri) {
+            if (Objects.equals(curs.getCursId(), courseId)) {
+                return curs;
+            }
+        }
+        return null;
+    }
+
+    public void addAttendance(Integer courseId, Student student){
+        for (Curs curs: cursuri) {
+            if (Objects.equals(curs.getCursId(), courseId)) {
+                curs.getListaPrezenta().add(student);
+            }
+        }
+    }
+
     public void setCursuri(List<Curs> cursuri) {
         this.cursuri = cursuri;
     }
+
+    public Curs getCursById(Integer id) {
+        for (Curs curs: cursuri) {
+            if (curs.getCursId() == id) {
+                return curs;
+            }
+        }
+        return null;
+    }
+
+
 }

@@ -4,7 +4,9 @@ package com.qrteam.QResent.controller;
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
 import com.qrteam.QResent.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,5 +60,20 @@ public class PrezentaQRController {
     @PostMapping("/save-course")
     ResponseEntity<String> saveCourse(@RequestBody SaveCourseDTO saveCourseDTO) {
         return new ResponseEntity<>(prezentaQRChoreographer.saveCourse(saveCourseDTO.getCursDTO(), saveCourseDTO.getDisciplineId()), HttpStatus.OK);
+    }
+
+    @PostMapping("/get-attendance")
+    ResponseEntity<List<StudentDTO>> getAttendance(@RequestBody Integer courseId) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getAttendance(courseId), HttpStatus.OK);
+    }
+
+    @PostMapping("/save-attendance")
+    ResponseEntity<StudentDTO> saveAttendance(@RequestBody AttendanceDTO attendance) {
+        return new ResponseEntity<>(prezentaQRChoreographer.saveAttendance(attendance), HttpStatus.OK);
+    }
+
+    @PostMapping("/export-attendance-list")
+    ResponseEntity<String> print(@RequestBody Integer cursId) {
+        return new ResponseEntity<>(prezentaQRChoreographer.print(cursId), HttpStatus.OK);
     }
 }

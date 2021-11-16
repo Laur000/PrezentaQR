@@ -7,22 +7,33 @@ import com.qrteam.QResent.dto.StudentDTO;
 import com.qrteam.QResent.service.Impl.PrezentaQRServiceImpl;
 import com.qrteam.QResent.service.PrezentaQRService;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(classes = {IntegrationTestConfig.class})
+@AutoConfigureMockMvc
 public class PrezentaQrUnitTests {
-    @Autowired
-    StudentData studentData;
-    @Autowired
-    PrezentaQRService prezentaQRService;
 
-/*    @Test
+    @Autowired
+    PrezentaQRServiceImpl prezentaQRService;
+
+    @Test
     public void shouldReturnStudentData() {
         LoginRequestDTO loginRequest = new LoginRequestDTO();
         loginRequest.setEmail("emailpentrufacultatefake1@facultate.stud.ro");
@@ -39,9 +50,9 @@ public class PrezentaQrUnitTests {
 
         ProfesorDTO profesorDTO = prezentaQRService.getProfesorData(loginRequest);
         assertEquals("Ion", profesorDTO.getFirstName());
-    }*/
+    }
 
-   /* @Test
+    @Test
     public void shouldReturnNullWithBadPassword() {
         LoginRequestDTO loginRequest = new LoginRequestDTO();
         loginRequest.setEmail("email.prof.ro");
@@ -49,9 +60,5 @@ public class PrezentaQrUnitTests {
 
         ProfesorDTO profesorDTO = prezentaQRService.getProfesorData(loginRequest);
         assertEquals(null, profesorDTO);
-          }*/
-
-    public void dtoMapperTest() {
-        //TODO
     }
 }
