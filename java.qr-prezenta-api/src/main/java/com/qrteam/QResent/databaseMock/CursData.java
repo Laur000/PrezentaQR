@@ -122,4 +122,15 @@ public class CursData {
     public void setCursuri(List<Curs> cursuri) {
         this.cursuri = cursuri;
     }
+
+    public Curs getCursById(Integer id) {
+        for (Curs curs: cursuri) {
+            if (curs.getCursId() == id) {
+                return curs;
+            }
+        }
+        return null;
+    }
+
+
 }

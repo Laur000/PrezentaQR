@@ -4,7 +4,9 @@ package com.qrteam.QResent.controller;
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
 import com.qrteam.QResent.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,5 +70,12 @@ public class PrezentaQRController {
     @PostMapping("/save-attendance")
     ResponseEntity<StudentDTO> saveAttendance(@RequestBody AttendanceDTO attendance) {
         return new ResponseEntity<>(prezentaQRChoreographer.saveAttendance(attendance), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/print", produces = "application/pdf")
+    ResponseEntity<String> print(@RequestBody Integer cursId) {
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"listaPrezenta\"")
+                .body(prezentaQRChoreographer.print(cursId));
     }
 }

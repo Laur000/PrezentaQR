@@ -11,5 +11,4 @@ public class QResentApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(QResentApplication.class, args);
 	}
-
 }
