@@ -27,4 +27,6 @@ public interface PrezentaQRService{
     public String saveCourse(CursDTO materie, Integer disciplineId);
 
     public List<StudentDTO> getAttendance(Integer courseId);
+
+    public StudentDTO saveAttendance(AttendanceDTO attendance);
 }

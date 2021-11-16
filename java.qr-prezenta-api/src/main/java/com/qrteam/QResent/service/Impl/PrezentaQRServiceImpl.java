@@ -146,4 +146,14 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
         }
         return null;
     }
+
+    @Override
+    public StudentDTO saveAttendance(AttendanceDTO attendance){
+        Student student = studentDataRepo.getStudentDataByEmail(attendance.getEmail());
+        if (student != null && student.getParola().equals(attendance.getPassword())) {
+            cursDataRepo.addAttendance(attendance.getCourseId(),student);
+            return modelMapper.map(student, StudentDTO.class);
+        }
+        return null;
+    }
 }

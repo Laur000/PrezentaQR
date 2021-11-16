@@ -51,4 +51,8 @@ public class PrezentaQRChoreographer {
     public List<StudentDTO> getAttendance(Integer courseId) {
         return prezentaQRService.getAttendance(courseId);
     }
+
+    public StudentDTO saveAttendance(AttendanceDTO attendance){
+        return prezentaQRService.saveAttendance(attendance);
+    }
 }

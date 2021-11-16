@@ -1,7 +1,6 @@
 package com.qrteam.QResent.databaseMock;
 
 import com.qrteam.QResent.models.Curs;
-import com.qrteam.QResent.models.Materie;
 import com.qrteam.QResent.models.Student;
 import org.springframework.stereotype.Repository;
 
@@ -110,6 +109,14 @@ public class CursData {
             }
         }
         return null;
+    }
+
+    public void addAttendance(Integer courseId, Student student){
+        for (Curs curs: cursuri) {
+            if (Objects.equals(curs.getCursId(), courseId)) {
+                curs.getListaPrezenta().add(student);
+            }
+        }
     }
 
     public void setCursuri(List<Curs> cursuri) {
