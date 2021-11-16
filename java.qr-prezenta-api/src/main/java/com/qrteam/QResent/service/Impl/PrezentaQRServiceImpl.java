@@ -31,10 +31,11 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     MaterieData materieDataRepo;
 
     @Autowired
-    ModelMapper modelMapper;
+    CursData cursDataRepo;
 
     @Autowired
-    CursData cursData;
+    ModelMapper modelMapper;
+
 
     @Override
     public StudentDTO getStudentData(LoginRequestDTO loginRequest) {
@@ -129,6 +130,19 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
                 cursDTOList.add(modelMapper.map(curs, CursDTO.class));
             }
             return cursDTOList;
+        }
+        return null;
+    }
+
+    @Override
+    public List<StudentDTO> getAttendance(Integer courseId){
+        List<StudentDTO> listaPrezenta = new ArrayList<>();
+        List<Student> listaStudenti = cursDataRepo.findCursById(courseId).getListaPrezenta();
+        if (listaStudenti != null) {
+            for (Student student : listaStudenti) {
+                listaPrezenta.add(modelMapper.map(student, StudentDTO.class));
+            }
+            return listaPrezenta;
         }
         return null;
     }

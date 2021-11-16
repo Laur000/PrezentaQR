@@ -1,12 +1,14 @@
 package com.qrteam.QResent.databaseMock;
 
 import com.qrteam.QResent.models.Curs;
+import com.qrteam.QResent.models.Materie;
 import com.qrteam.QResent.models.Student;
 import org.springframework.stereotype.Repository;
 
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class CursData {
@@ -99,6 +101,15 @@ public class CursData {
 
     public List<Curs> getCursuri() {
         return cursuri;
+    }
+
+    public Curs findCursById(Integer courseId){
+        for (Curs curs: cursuri) {
+            if (Objects.equals(curs.getCursId(), courseId)) {
+                return curs;
+            }
+        }
+        return null;
     }
 
     public void setCursuri(List<Curs> cursuri) {

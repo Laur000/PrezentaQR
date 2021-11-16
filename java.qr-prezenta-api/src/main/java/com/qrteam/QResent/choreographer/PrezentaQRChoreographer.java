@@ -1,6 +1,7 @@
 package com.qrteam.QResent.choreographer;
 
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.models.Student;
 import com.qrteam.QResent.service.PrezentaQRService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -45,5 +46,9 @@ public class PrezentaQRChoreographer {
 
     public String saveCourse(CursDTO cursDTO, Integer disciplineId) {
         return prezentaQRService.saveCourse(cursDTO, disciplineId);
+    }
+
+    public List<StudentDTO> getAttendance(Integer courseId) {
+        return prezentaQRService.getAttendance(courseId);
     }
 }
