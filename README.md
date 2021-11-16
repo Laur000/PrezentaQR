@@ -25,7 +25,9 @@ https://trello.com/invite/b/GfK1Wq88/181e47de1549c8484c144118962adc92/proiect-qr
 ![image](https://user-images.githubusercontent.com/56819922/139264056-0d874d37-2fb1-4450-aa30-7e90ba242058.png)
 
 Schita flux adaugare materie si curs
-![Schita flux adaugare materie si curs](https://user-images.githubusercontent.com/56819922/141153808-fca769f5-9fa6-4704-ab71-0c65bebf5f03.png)
+![poza](https://user-images.githubusercontent.com/57360669/142028480-c0d6092e-820c-4e82-845a-5d20ba636ab2.png)
+
 
 Schita fluxuri student
-![Schita fluxuri student](https://user-images.githubusercontent.com/56819922/141158992-8f11f104-fe3d-4242-afde-743592c434ce.png)
+![Schita fluxuri student](https://user-images.githubusercontent.com/57360669/142030222-3b2e64c9-8121-49b5-97c3-043bf86e262d.png)
+
