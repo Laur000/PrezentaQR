@@ -13,7 +13,7 @@ import {
   GearIcon,
   HomeIcon,
 } from "@radix-ui/react-icons";
-import NavbarButton from "../../Components/Layout/NavbarButton";
+import NavbarButton from "../NavbarButton/NavbarButton";
 
 const NavbarContent = () => {
   return (

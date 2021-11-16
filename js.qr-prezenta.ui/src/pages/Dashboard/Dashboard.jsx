@@ -1,16 +1,13 @@
 import React from "react";
 import { AppShell, Navbar, Header } from "@mantine/core";
-import { Route} from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
-import NavbarContent from "./NavbarContent";
+import { Route } from "react-router-dom";
+import NavbarContent from "../../components/Layout/NavbarContent/NavbarContent";
 import CalendarPage from "../CalendarPage/CalendarPage";
 import HomePage from "../HomePage/HomePage";
 import AttendancePage from "../AttendancePage/AttendancePage";
-import HeaderContent from "./HeaderContent/HeaderContent";
+import HeaderContent from "../../components/Layout/HeaderContent/HeaderContent";
 
 const Dashboard = () => {
-  const [user, setUser] = React.useContext(UserContext);
-
   return (
     <AppShell
       padding="md"

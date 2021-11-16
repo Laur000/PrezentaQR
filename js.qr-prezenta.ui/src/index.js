@@ -4,14 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { UserProvider } from "./context/UserContext";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { NotificationsProvider } from '@mantine/notifications';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
+      <Provider store={store}>
+      <NotificationsProvider>
         <App />
-      </UserProvider>
+      </NotificationsProvider>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

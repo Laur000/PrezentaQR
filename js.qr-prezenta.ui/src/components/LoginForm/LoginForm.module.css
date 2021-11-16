@@ -1,0 +1,16 @@
+.field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.segmentedControlWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px 0;
+}
+
+.loginButton {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
