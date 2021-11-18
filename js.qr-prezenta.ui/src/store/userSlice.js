@@ -30,6 +30,9 @@ export const userSlice = createSlice({
     updateUserType: (state, action) => {
       state.userType = action.payload;
     },
+    deleteUser : (state, action) => {
+      state.userData = undefined;
+    }
   },
   extraReducers: {
     [authenticateUser.fulfilled]: (state, action) => {
@@ -38,5 +41,5 @@ export const userSlice = createSlice({
   },
 });
 
-export const { updateUserType } = userSlice.actions;
+export const { updateUserType, deleteUser } = userSlice.actions;
 export default userSlice.reducer;

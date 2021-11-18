@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { MAIN_URL } from "../../utils/url";
+import styles from "./DisciplineForm.module.css";
 
 const DisciplineForm = (props) => {
   let ENDPOINT = "save-discipline";
@@ -38,8 +39,9 @@ const DisciplineForm = (props) => {
       });
   };
   return (
-    <div>
+    <div className={styles.container}>
       <TextInput
+        className={styles.field}
         placeholder="Discipline name"
         label="Discipline name"
         onChange={(event) => {
@@ -52,6 +54,7 @@ const DisciplineForm = (props) => {
       />
 
       <TextInput
+        className={styles.field}
         placeholder="Details"
         label="Details"
         onChange={(event) => {
@@ -63,6 +66,7 @@ const DisciplineForm = (props) => {
       />
 
       <Button
+        className={styles.button}
         color="teal"
         onClick={() => {
           saveNewDiscipline();
