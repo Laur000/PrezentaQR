@@ -10,7 +10,11 @@ import {
 import styles from "./LoginForm.module.css";
 import { useNotifications } from "@mantine/notifications";
 import { useSelector, useDispatch } from "react-redux";
-import { updateUserType, authenticateUser } from "../../store/userSlice";
+import {
+  updateUserType,
+  authenticateUser,
+  deleteUser,
+} from "../../store/userSlice";
 
 const LoginForm = (props) => {
   const notifications = useNotifications();
@@ -19,23 +23,18 @@ const LoginForm = (props) => {
   const user = useSelector((state) => state.user.userData);
 
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [status, setStatus] = useState(false);
 
   React.useEffect(() => {
-    if (user === null && status === true)
+    if (user === null)
       notifications.showNotification({
         title: "Login",
         message: "Something went wrong with your authentication 🤥",
         color: "red",
         onClose: () => {
-          setStatus(false);
+          dispatch(deleteUser());
         },
       });
-
-    return () => {
-      setStatus(false);
-    };
-  }, [user, status]);
+  }, [user]);
 
   /* const validateStudentEmail = (email) => {
     var re = /^([a-zA-Z0-9_.-]{3,})+@facultate+\.stud+\.+ro+$/;
@@ -100,7 +99,6 @@ const LoginForm = (props) => {
           fullWidth
           onClick={() => {
             dispatch(authenticateUser({ userType, formData }));
-            setStatus(true);
           }}
         >
           login
