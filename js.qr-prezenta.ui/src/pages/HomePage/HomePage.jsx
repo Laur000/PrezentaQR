@@ -12,15 +12,17 @@ const HomePage = () => {
       <div>
         <div className={styles.buttonContainer}>
           <h1>Disciplines</h1>
-          <Button
-            variant="gradient"
-            gradient={{ from: "teal", to: "blue", deg: 60 }}
-            onClick={() => {
-              setModalState(true);
-            }}
-          >
-            Add Discipline
-          </Button>
+          {userType === "teacher" && (
+            <Button
+              variant="gradient"
+              gradient={{ from: "teal", to: "blue", deg: 60 }}
+              onClick={() => {
+                setModalState(true);
+              }}
+            >
+              Add Discipline
+            </Button>
+          )}
         </div>
 
         <DisciplineList />
