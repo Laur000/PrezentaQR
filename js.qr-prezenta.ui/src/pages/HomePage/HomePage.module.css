@@ -1,0 +1,6 @@
+.buttonContainer{
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    padding: 20px;
+}
