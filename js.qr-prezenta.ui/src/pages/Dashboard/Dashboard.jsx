@@ -6,6 +6,7 @@ import CalendarPage from "../CalendarPage/CalendarPage";
 import HomePage from "../HomePage/HomePage";
 import AttendancePage from "../AttendancePage/AttendancePage";
 import HeaderContent from "../../components/Layout/HeaderContent/HeaderContent";
+import DisciplinePage from "../DisciplinePage/DisciplinePage";
 
 const Dashboard = () => {
   return (
@@ -31,6 +32,7 @@ const Dashboard = () => {
       })}
     >
       <Route path="/dashboard/" exact component={HomePage} />
+      <Route path="/dashboard/discipline/:id" component={DisciplinePage} />
       <Route path="/dashboard/attendance" exact component={AttendancePage} />
       <Route path="/dashboard/calendar" exact component={CalendarPage} />
     </AppShell>
