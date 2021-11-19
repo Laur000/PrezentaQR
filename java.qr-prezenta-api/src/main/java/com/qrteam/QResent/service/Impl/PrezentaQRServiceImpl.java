@@ -66,6 +66,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
         materieDataRepo.addMaterie(materie);
         Profesor profesor = new Profesor();
         profesor = profesorDataRepo.getProfesorDataByEmail(email);
+        materie.setId(profesor.getMaterii().size());
         profesor.getMaterii().add(materie.getId());
         return materie.getNume();
     }
@@ -76,6 +77,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
         if (materie == null) {
             return null;
         } else {
+            cursDTO.setCursId(materie.getCursuri().size());
             materie.getCursuri().add(modelMapper.map(cursDTO, Curs.class));
             return cursDTO.getNume();
         }
