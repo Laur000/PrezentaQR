@@ -35,8 +35,8 @@ public class PrezentaQRChoreographer {
         return prezentaQRService.saveDiscipline(materie, emailProfesor);
     }
 
-    public List<MaterieDTO> getProfDisciplines(String email) {
-        return prezentaQRService.getProfDisciplines(email);
+    public List<MaterieDTO> getProfDisciplines(ProfRequestDTO request) {
+        return prezentaQRService.getProfDisciplines(request);
     }
 
     public List<MaterieDTO> getStduentDisciplines(String email) {

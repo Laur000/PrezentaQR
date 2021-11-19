@@ -42,13 +42,22 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
                 cursTitle.setAlignment(Element.ALIGN_CENTER);
                 Paragraph space = new Paragraph(" ");
 
-                PdfPTable table = new PdfPTable(1);
-                PdfPCell c1 = new PdfPCell(new Paragraph("Studenti"));
+                PdfPTable table = new PdfPTable(2);
+                Font bold = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+                Paragraph studentColumn = new Paragraph(new Paragraph("Studenti", bold));
+                Paragraph grupaColumn = new Paragraph(new Paragraph("Grupa", bold));
+                studentColumn.setAlignment(Element.ALIGN_CENTER);
+                grupaColumn.setAlignment(Element.ALIGN_CENTER);
+                PdfPCell c1 = new PdfPCell(studentColumn);
+                PdfPCell c2 = new PdfPCell(grupaColumn);
 
                 table.addCell(c1);
+                table.addCell(c2);
 
                 for (Student student : curs.getListaPrezenta()) {
                     PdfPCell stud = new PdfPCell(new Paragraph(student.getFirstName() + " "
+                            + student.getLastName()));
+                    PdfPCell grupa = new PdfPCell(new Paragraph(student.getFirstName() + " "
                             + student.getLastName()));
                     table.addCell(stud);
                 }

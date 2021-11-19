@@ -4,9 +4,7 @@ package com.qrteam.QResent.controller;
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
 import com.qrteam.QResent.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,8 +41,8 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/get-prof-disciplines")
-    ResponseEntity<List<MaterieDTO>> getDisciplines(@RequestBody String email) {
-        return new ResponseEntity<>(prezentaQRChoreographer.getProfDisciplines(email), HttpStatus.OK);
+    ResponseEntity<List<MaterieDTO>> getDisciplines(@RequestBody ProfRequestDTO request) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getProfDisciplines(request), HttpStatus.OK);
     }
 
     @PostMapping("/get-student-disciplines")

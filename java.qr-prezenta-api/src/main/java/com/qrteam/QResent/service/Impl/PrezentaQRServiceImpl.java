@@ -84,9 +84,9 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
-    public List<MaterieDTO> getProfDisciplines(String email) {
+    public List<MaterieDTO> getProfDisciplines(ProfRequestDTO request) {
         Profesor profesor = new Profesor();
-        profesor = profesorDataRepo.getProfesorDataByEmail(email);
+        profesor = profesorDataRepo.getProfesorDataByEmail(request.getEmail());
         List<MaterieDTO> materii = new ArrayList<>();
 
         for (Integer id : profesor.getMaterii()) {

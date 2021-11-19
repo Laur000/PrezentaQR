@@ -2,7 +2,6 @@ package com.qrteam.QResent.service;
 
 
 import com.qrteam.QResent.dto.*;
-import com.qrteam.QResent.models.Student;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public interface PrezentaQRService{
 
     public String saveDiscipline(MaterieDTO materie, String emailProfesor);
 
-    public List<MaterieDTO> getProfDisciplines(String email);
+    public List<MaterieDTO> getProfDisciplines(ProfRequestDTO request);
 
     public List<MaterieDTO> getStudentDisciplines(String email);
 
