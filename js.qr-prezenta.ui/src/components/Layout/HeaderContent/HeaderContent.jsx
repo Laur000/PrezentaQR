@@ -9,7 +9,7 @@ import { deleteUser } from "../../../store/userSlice";
 const HeaderContent = () => {
   const user = useSelector((state) => state.user.userData);
   const dispatch = useDispatch();
-  console.log(user);
+  
   return (
     <div className={styles.container}>
       <div className={styles.logo}>

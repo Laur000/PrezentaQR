@@ -21,6 +21,7 @@ const CourseForm = (props) => {
       })
       .then((response) => response.data)
       .then((data) => {
+        console.log(data);
         if (data) {
           notifications.showNotification({
             title: "Submit new course",

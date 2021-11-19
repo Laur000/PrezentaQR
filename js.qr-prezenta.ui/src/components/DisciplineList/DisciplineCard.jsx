@@ -11,9 +11,8 @@ import {
 import img from "../../assets/discipline-img.jpg";
 import { Link } from "react-router-dom";
 
-const DisciplineCard = ({ name, description }) => {
+const DisciplineCard = ({ name, description, id }) => {
   const theme = useMantineTheme();
-
   const secondaryColor =
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
 
@@ -40,7 +39,7 @@ const DisciplineCard = ({ name, description }) => {
 
         <Button
           component={Link}
-          to={"/dashboard/discipline/" + name}
+          to={"/dashboard/discipline/" + id}
           variant="light"
           color="blue"
           fullWidth
