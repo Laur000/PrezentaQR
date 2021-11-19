@@ -6,6 +6,9 @@ import com.qrteam.QResent.databaseMock.MaterieData;
 import com.qrteam.QResent.databaseMock.ProfesorData;
 import com.qrteam.QResent.databaseMock.StudentData;
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
+import com.qrteam.QResent.dto.requests.ProfRequestDTO;
+import com.qrteam.QResent.dto.requests.StudentRequestDTO;
 import com.qrteam.QResent.models.Curs;
 import com.qrteam.QResent.models.Materie;
 import com.qrteam.QResent.models.Profesor;
@@ -104,8 +107,8 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
-    public List<MaterieDTO> getStudentDisciplines(String email) {
-        Student student = studentDataRepo.getStudentDataByEmail(email);
+    public List<MaterieDTO> getStudentDisciplines(StudentRequestDTO request) {
+        Student student = studentDataRepo.getStudentDataByEmail(request.getEmail());
         if (student != null) {
             List<MaterieDTO> materii = new ArrayList<>();
 
@@ -124,9 +127,9 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
-    public List<CursDTO> getCourses(Integer disciplineId) {
+    public List<CursDTO> getCourses(CoursesRequestDTO request) {
         List<CursDTO> cursDTOList = new ArrayList<>();
-        Materie materie = materieDataRepo.findById(disciplineId);
+        Materie materie = materieDataRepo.findById(request.getDisciplineId());
         if (materie != null) {
             for (Curs curs : materie.getCursuri()) {
                 cursDTOList.add(modelMapper.map(curs, CursDTO.class));
@@ -137,9 +140,9 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
-    public List<StudentDTO> getAttendance(Integer courseId){
+    public List<StudentDTO> getAttendance(CoursesRequestDTO request){
         List<StudentDTO> listaPrezenta = new ArrayList<>();
-        List<Student> listaStudenti = cursDataRepo.findCursById(courseId).getListaPrezenta();
+        List<Student> listaStudenti = cursDataRepo.findCursById(request.getDisciplineId()).getListaPrezenta();
         if (listaStudenti != null) {
             for (Student student : listaStudenti) {
                 listaPrezenta.add(modelMapper.map(student, StudentDTO.class));

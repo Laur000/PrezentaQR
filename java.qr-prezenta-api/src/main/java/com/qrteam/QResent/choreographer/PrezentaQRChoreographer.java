@@ -1,6 +1,9 @@
 package com.qrteam.QResent.choreographer;
 
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
+import com.qrteam.QResent.dto.requests.ProfRequestDTO;
+import com.qrteam.QResent.dto.requests.StudentRequestDTO;
 import com.qrteam.QResent.service.GeneratePdfService;
 import com.qrteam.QResent.service.PrezentaQRService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,27 +42,27 @@ public class PrezentaQRChoreographer {
         return prezentaQRService.getProfDisciplines(request);
     }
 
-    public List<MaterieDTO> getStduentDisciplines(String email) {
-        return prezentaQRService.getStudentDisciplines(email);
+    public List<MaterieDTO> getStduentDisciplines(StudentRequestDTO request) {
+        return prezentaQRService.getStudentDisciplines(request);
     }
 
-    public List<CursDTO> getProfCourses(Integer disciplineId) {
-        return prezentaQRService.getCourses(disciplineId);
+    public List<CursDTO> getProfCourses(CoursesRequestDTO request) {
+        return prezentaQRService.getCourses(request);
     }
 
     public String saveCourse(CursDTO cursDTO, Integer disciplineId) {
         return prezentaQRService.saveCourse(cursDTO, disciplineId);
     }
 
-    public List<StudentDTO> getAttendance(Integer courseId) {
-        return prezentaQRService.getAttendance(courseId);
+    public List<StudentDTO> getAttendance(CoursesRequestDTO request) {
+        return prezentaQRService.getAttendance(request);
     }
 
     public StudentDTO saveAttendance(AttendanceDTO attendance) {
         return prezentaQRService.saveAttendance(attendance);
     }
 
-    public String print(Integer cursId) {
-        return generatePdfService.print(cursId);
+    public String print(CoursesRequestDTO request) {
+        return generatePdfService.print(request);
     }
 }

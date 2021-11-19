@@ -3,6 +3,8 @@ package PezentaQrServiceTest;
 import com.qrteam.QResent.dto.AttendanceDTO;
 import com.qrteam.QResent.dto.MaterieDTO;
 import com.qrteam.QResent.dto.StudentDTO;
+import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
+import com.qrteam.QResent.dto.requests.StudentRequestDTO;
 import com.qrteam.QResent.service.Impl.PrezentaQRServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -24,7 +26,9 @@ public class PrezentaQrIntegrationTests {
 
     @Test
     public void shouldGetStudentDisciplines() {
-        List<MaterieDTO> materieDTOList = prezentaQRService.getStudentDisciplines("emailpentrufacultatefake1@facultate.stud.ro");
+        StudentRequestDTO request = new StudentRequestDTO();
+        request.setEmail("emailpentrufacultatefake1@facultate.stud.ro");
+        List<MaterieDTO> materieDTOList = prezentaQRService.getStudentDisciplines(request);
         MaterieDTO materie = materieDTOList.get(0);
 
         Assertions.assertEquals(0, materie.getId());
@@ -33,7 +37,9 @@ public class PrezentaQrIntegrationTests {
 
     @Test
     public void shouldGetAttendance() {
-        List<StudentDTO> students = prezentaQRService.getAttendance(0);
+        CoursesRequestDTO request = new CoursesRequestDTO();
+        request.setDisciplineId(0);
+        List<StudentDTO> students = prezentaQRService.getAttendance(request);
         Assertions.assertEquals(0, students.size());
 
         AttendanceDTO attendanceDTO = new AttendanceDTO();
@@ -44,7 +50,7 @@ public class PrezentaQrIntegrationTests {
         StudentDTO studentDTO = prezentaQRService.saveAttendance(attendanceDTO);
         Assertions.assertEquals("Andrei", studentDTO.getFirstName());
 
-        students = prezentaQRService.getAttendance(0);
+        students = prezentaQRService.getAttendance(request);
         Assertions.assertEquals(1, students.size());
         Assertions.assertEquals("Andrei", students.get(0).getFirstName());
     }

@@ -1,6 +1,6 @@
-package com.qrteam.QResent.dto;
+package com.qrteam.QResent.dto.requests;
 
-public class ProfRequestDTO {
+public class StudentRequestDTO {
     String email;
 
     public String getEmail() {

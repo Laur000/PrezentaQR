@@ -2,6 +2,9 @@ package com.qrteam.QResent.service;
 
 
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
+import com.qrteam.QResent.dto.requests.ProfRequestDTO;
+import com.qrteam.QResent.dto.requests.StudentRequestDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,13 +22,13 @@ public interface PrezentaQRService{
 
     public List<MaterieDTO> getProfDisciplines(ProfRequestDTO request);
 
-    public List<MaterieDTO> getStudentDisciplines(String email);
+    public List<MaterieDTO> getStudentDisciplines(StudentRequestDTO request);
 
-    public List<CursDTO> getCourses(Integer disciplineId);
+    public List<CursDTO> getCourses(CoursesRequestDTO request);
 
     public String saveCourse(CursDTO materie, Integer disciplineId);
 
-    public List<StudentDTO> getAttendance(Integer courseId);
+    public List<StudentDTO> getAttendance(CoursesRequestDTO request);
 
     public StudentDTO saveAttendance(AttendanceDTO attendance);
 }

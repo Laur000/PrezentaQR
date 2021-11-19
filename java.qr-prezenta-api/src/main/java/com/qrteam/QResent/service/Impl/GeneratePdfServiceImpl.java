@@ -5,6 +5,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.qrteam.QResent.databaseMock.CursData;
+import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
 import com.qrteam.QResent.exeptions.CursNotFoundExeption;
 import com.qrteam.QResent.models.Curs;
 import com.qrteam.QResent.models.Student;
@@ -28,10 +29,9 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
     CursData cursDataRepo;
 
     @Override
-    public String print(Integer cursId) {
+    public String print(CoursesRequestDTO request) {
         try {
-            Curs curs = cursDataRepo.getCursById(cursId);
-            //Curs curs = new CursData().getCursById(id);
+            Curs curs = cursDataRepo.getCursById(request.getDisciplineId());
             if (curs != null) {
                 Document document = new Document(PageSize.A4);
                 PdfWriter.getInstance(document, new FileOutputStream(PDF_PATH));
@@ -77,7 +77,7 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
                 }
 
             } else {
-                throw new CursNotFoundExeption("Nu exista curs cu id ul " + cursId);
+                throw new CursNotFoundExeption("Nu exista curs cu id ul " + request);
             }
 
         } catch (FileNotFoundException e) {

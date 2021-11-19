@@ -3,6 +3,9 @@ package com.qrteam.QResent.controller;
 
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
+import com.qrteam.QResent.dto.requests.ProfRequestDTO;
+import com.qrteam.QResent.dto.requests.StudentRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,13 +49,13 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/get-student-disciplines")
-    ResponseEntity<List<MaterieDTO>> getStudentDisciplines(@RequestBody String email) {
-        return new ResponseEntity<>(prezentaQRChoreographer.getStduentDisciplines(email), HttpStatus.OK);
+    ResponseEntity<List<MaterieDTO>> getStudentDisciplines(@RequestBody StudentRequestDTO request) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getStduentDisciplines(request), HttpStatus.OK);
     }
 
     @PostMapping("/get-courses")
-    ResponseEntity<List<CursDTO>> getProfCourses(@RequestBody Integer disciplineId) {
-        return new ResponseEntity<>(prezentaQRChoreographer.getProfCourses(disciplineId), HttpStatus.OK);
+    ResponseEntity<List<CursDTO>> getProfCourses(@RequestBody CoursesRequestDTO request) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getProfCourses(request), HttpStatus.OK);
     }
 
     @PostMapping("/save-course")
@@ -61,8 +64,8 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/get-attendance")
-    ResponseEntity<List<StudentDTO>> getAttendance(@RequestBody Integer courseId) {
-        return new ResponseEntity<>(prezentaQRChoreographer.getAttendance(courseId), HttpStatus.OK);
+    ResponseEntity<List<StudentDTO>> getAttendance(@RequestBody CoursesRequestDTO request) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getAttendance(request), HttpStatus.OK);
     }
 
     @PostMapping("/save-attendance")
@@ -71,7 +74,7 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/export-attendance-list")
-    ResponseEntity<String> print(@RequestBody Integer cursId) {
-        return new ResponseEntity<>(prezentaQRChoreographer.print(cursId), HttpStatus.OK);
+    ResponseEntity<String> print(@RequestBody CoursesRequestDTO request) {
+        return new ResponseEntity<>(prezentaQRChoreographer.print(request), HttpStatus.OK);
     }
 }
