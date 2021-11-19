@@ -1,4 +1,12 @@
-import { Button, Card, Group, List, Text, ThemeIcon, Modal } from "@mantine/core";
+import {
+  Button,
+  Card,
+  Group,
+  List,
+  Text,
+  ThemeIcon,
+  Modal,
+} from "@mantine/core";
 import React, { useState } from "react";
 import { ArrowLeftIcon, CheckCircledIcon } from "@radix-ui/react-icons";
 import { useHistory } from "react-router";
@@ -31,9 +39,9 @@ const DisciplinePage = (props) => {
   return (
     <div>
       <Button
+        className={styles.goBackButton}
         leftIcon={<ArrowLeftIcon />}
         variant="white"
-        style={{ background: "transparent", padding: 0 }}
         onClick={() => history.goBack()}
       >
         Back to Disciplines
@@ -74,7 +82,6 @@ const DisciplinePage = (props) => {
       >
         <CourseForm closeModal={() => setModalState(false)} />
       </Modal>
-      
     </div>
   );
 };

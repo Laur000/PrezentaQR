@@ -25,30 +25,15 @@ const LoginForm = (props) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   React.useEffect(() => {
-    if (user === null)
+    if (user === null) {
+      dispatch(deleteUser());
       notifications.showNotification({
         title: "Login",
         message: "Something went wrong with your authentication 🤥",
         color: "red",
-        onClose: () => {
-          dispatch(deleteUser());
-        },
       });
+    }
   }, [user]);
-
-  /* const validateStudentEmail = (email) => {
-    var re = /^([a-zA-Z0-9_.-]{3,})+@facultate+\.stud+\.+ro+$/;
-    return re.test(email);
-  };
-
-  const validateProfessorEmail = (email) => {
-    var re = /^([a-zA-Z0-9_.-]{3,})+@facultate+\.prof+\.+ro+$/;
-    return re.test(email);
-  };
-  const validateAdminEmail = (email) => {
-    var re = /^([a-zA-Z0-9_.-]{3,})+@facultate+\.admin+\.+ro+$/;
-    return re.test(email);
-  }; */
 
   return (
     <>
