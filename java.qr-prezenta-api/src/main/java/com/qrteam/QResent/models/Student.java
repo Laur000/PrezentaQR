@@ -8,6 +8,7 @@ public class Student extends Utilizator {
     private String cnp;
     private String firstName;
     private String lastName;
+    private String grupa;
     private int yearOfStudy;
     private List<Integer> materii;
 
@@ -15,11 +16,12 @@ public class Student extends Utilizator {
 
     }
 
-    public Student(String cnp, String firstName, String lastName, String email, int yearOfStudy, String parola, List<Integer> materii) {
+    public Student(String cnp, String firstName, String lastName, String email, String grupa, int yearOfStudy, String parola, List<Integer> materii) {
         super(email, parola);
         this.cnp = cnp;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.grupa = grupa;
         this.yearOfStudy = yearOfStudy;
         this.materii = materii;
 
@@ -64,5 +66,13 @@ public class Student extends Utilizator {
 
     public void setMaterii(List<Integer> materii) {
         this.materii = materii;
+    }
+
+    public String getGrupa() {
+        return grupa;
+    }
+
+    public void setGrupa(String grupa) {
+        this.grupa = grupa;
     }
 }

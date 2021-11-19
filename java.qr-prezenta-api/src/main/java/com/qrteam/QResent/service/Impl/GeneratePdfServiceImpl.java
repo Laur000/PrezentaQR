@@ -57,9 +57,9 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
                 for (Student student : curs.getListaPrezenta()) {
                     PdfPCell stud = new PdfPCell(new Paragraph(student.getFirstName() + " "
                             + student.getLastName()));
-                    PdfPCell grupa = new PdfPCell(new Paragraph(student.getFirstName() + " "
-                            + student.getLastName()));
+                    PdfPCell grupa = new PdfPCell(new Paragraph(student.getGrupa()));
                     table.addCell(stud);
+                    table.addCell(grupa);
                 }
 
                 document.add(title);

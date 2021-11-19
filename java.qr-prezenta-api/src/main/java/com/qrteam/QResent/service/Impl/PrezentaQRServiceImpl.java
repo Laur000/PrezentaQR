@@ -80,7 +80,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
         if (materie == null) {
             return null;
         } else {
-            cursDTO.setCursId(materie.getCursuri().size());
+            cursDTO.setCursId(materie.getCursuri().size()+1);
             materie.getCursuri().add(modelMapper.map(cursDTO, Curs.class));
             return cursDTO.getNume();
         }

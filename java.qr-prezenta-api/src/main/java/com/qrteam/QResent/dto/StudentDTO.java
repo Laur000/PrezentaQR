@@ -7,6 +7,7 @@ public class StudentDTO {
     private String firstName;
     private String lastName;
     private String email;
+    private String grupa;
     private int yearOfStudy;
     List<Integer> materii;
 
@@ -14,12 +15,13 @@ public class StudentDTO {
 
     }
 
-    public StudentDTO(String cnp, String firstName, String lastName, String email, int yearOfStudy) {
+    public StudentDTO(String cnp, String firstName, String lastName, String email, String grupa,  int yearOfStudy) {
         this.cnp = cnp;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.yearOfStudy = yearOfStudy;
+        this.grupa = grupa;
         materii = null;
     }
 
@@ -70,6 +72,14 @@ public class StudentDTO {
 
     public void setMaterii(List<Integer> materii) {
         this.materii = materii;
+    }
+
+    public String getGrupa() {
+        return grupa;
+    }
+
+    public void setGrupa(String grupa) {
+        this.grupa = grupa;
     }
 }
 
