@@ -10,6 +10,7 @@ import com.qrteam.QResent.service.PrezentaQRService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.List;
 
 @Component
@@ -70,7 +71,7 @@ public class PrezentaQRChoreographer {
         return generatePdfService.print(request);
     }
 
-    public String getQR(QrDataDTO request) {
+    public String getQR(QrDataDTO request) throws IOException {
         return generateQRService.getQR(request);
     }
 }
