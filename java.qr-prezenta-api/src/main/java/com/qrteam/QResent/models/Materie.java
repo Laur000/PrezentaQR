@@ -8,13 +8,13 @@ public class Materie {
     private Integer id;
     private String nume;
     private String detalii;
-    private List<Curs> cursuri;
+    private List<Integer> cursuri;
 
     public Materie() {
 
     }
 
-    public Materie(Integer id, String nume, String detalii, List<Curs> cursuri) {
+    public Materie(Integer id, String nume, String detalii, List<Integer> cursuri) {
         this.id = id;
         this.nume = nume;
         this.detalii = detalii;
@@ -37,11 +37,11 @@ public class Materie {
         this.detalii = detalii;
     }
 
-    public List<Curs> getCursuri() {
+    public List<Integer> getCursuri() {
         return cursuri;
     }
 
-    public void setCursuri(List<Curs> cursuri) {
+    public void setCursuri(List<Integer> cursuri) {
         this.cursuri = cursuri;
     }
 

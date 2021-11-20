@@ -5,6 +5,7 @@ import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
 import com.qrteam.QResent.dto.requests.ProfRequestDTO;
 import com.qrteam.QResent.dto.requests.StudentRequestDTO;
 import com.qrteam.QResent.service.GeneratePdfService;
+import com.qrteam.QResent.service.GenerateQRService;
 import com.qrteam.QResent.service.PrezentaQRService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,9 @@ public class PrezentaQRChoreographer {
 
     @Autowired
     GeneratePdfService generatePdfService;
+
+    @Autowired
+    GenerateQRService generateQRService;
 
     public StudentDTO getStudentData(LoginRequestDTO loginRequest) {
         StudentDTO response = prezentaQRService.getStudentData(loginRequest);
@@ -64,5 +68,9 @@ public class PrezentaQRChoreographer {
 
     public String print(CoursesRequestDTO request) {
         return generatePdfService.print(request);
+    }
+
+    public String getQR(QrDataDTO request) {
+        return generateQRService.getQR(request);
     }
 }

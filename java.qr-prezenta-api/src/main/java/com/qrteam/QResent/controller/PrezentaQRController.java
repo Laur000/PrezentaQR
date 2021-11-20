@@ -77,4 +77,9 @@ public class PrezentaQRController {
     ResponseEntity<String> print(@RequestBody CoursesRequestDTO request) {
         return new ResponseEntity<>(prezentaQRChoreographer.print(request), HttpStatus.OK);
     }
+
+    @PostMapping("/get-QR")
+    ResponseEntity<String> getQR(@RequestBody QrDataDTO request) {
+        return new ResponseEntity<>(prezentaQRChoreographer.getQR(request), HttpStatus.OK);
+    }
 }
