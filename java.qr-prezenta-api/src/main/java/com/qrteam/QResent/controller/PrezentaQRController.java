@@ -3,10 +3,8 @@ package com.qrteam.QResent.controller;
 
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
 import com.qrteam.QResent.dto.*;
-import com.qrteam.QResent.dto.requests.AttendanceRequestDTO;
-import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
-import com.qrteam.QResent.dto.requests.ProfRequestDTO;
-import com.qrteam.QResent.dto.requests.StudentRequestDTO;
+import com.qrteam.QResent.dto.requests.*;
+import com.qrteam.QResent.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -86,7 +84,12 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/get-QR")
-    ResponseEntity<String> getQR(@RequestBody QrDataDTO request) throws IOException {
+    ResponseEntity<String> getQR(@RequestBody QRRequestDTO request) throws IOException {
         return new ResponseEntity<>(prezentaQRChoreographer.getQR(request), HttpStatus.OK);
+    }
+
+    @PostMapping("/get-attendance-data")
+    ResponseEntity<QrDataDTO> getAttendanceData() throws IOException {
+        return new ResponseEntity<>(new QrDataDTO(Constants.COURSE_ID,Constants.SECURITY_CODE), HttpStatus.OK);
     }
 }

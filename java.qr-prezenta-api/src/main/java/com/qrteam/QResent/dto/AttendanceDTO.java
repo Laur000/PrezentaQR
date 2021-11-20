@@ -5,6 +5,7 @@ public class AttendanceDTO {
     private String email;
     private String password;
     private Integer courseId;
+    private Long securityCode;
 
     public String getEmail() {
         return email;
@@ -28,5 +29,13 @@ public class AttendanceDTO {
 
     public void setCourseId(Integer courseId) {
         this.courseId = courseId;
+    }
+
+    public Long getSecurityCode() {
+        return securityCode;
+    }
+
+    public void setSecurityCode(Long securityCode) {
+        this.securityCode = securityCode;
     }
 }

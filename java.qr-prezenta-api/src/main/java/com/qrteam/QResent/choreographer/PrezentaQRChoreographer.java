@@ -1,10 +1,7 @@
 package com.qrteam.QResent.choreographer;
 
 import com.qrteam.QResent.dto.*;
-import com.qrteam.QResent.dto.requests.AttendanceRequestDTO;
-import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
-import com.qrteam.QResent.dto.requests.ProfRequestDTO;
-import com.qrteam.QResent.dto.requests.StudentRequestDTO;
+import com.qrteam.QResent.dto.requests.*;
 import com.qrteam.QResent.service.GeneratePdfService;
 import com.qrteam.QResent.service.GenerateQRService;
 import com.qrteam.QResent.service.PrezentaQRService;
@@ -73,7 +70,7 @@ public class PrezentaQRChoreographer {
         return generatePdfService.print(request);
     }
 
-    public String getQR(QrDataDTO request) throws IOException {
+    public String getQR(QRRequestDTO request) throws IOException {
         return generateQRService.getQR(request);
     }
 
