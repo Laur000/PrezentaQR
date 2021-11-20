@@ -32,6 +32,5 @@ Schita fluxuri student
 ![Schita fluxuri student](https://user-images.githubusercontent.com/57360669/142030222-3b2e64c9-8121-49b5-97c3-043bf86e262d.png)
 
 Logica QR
-![Logica QR](https://user-images.githubusercontent.com/56819922/142723779-46a0f798-e256-4496-9b88-df996fde01b7.png)
-
+![flux QR](https://user-images.githubusercontent.com/56819922/142724956-784c18f7-2cb0-48ae-acb1-e4c8ecd46beb.png)
 
