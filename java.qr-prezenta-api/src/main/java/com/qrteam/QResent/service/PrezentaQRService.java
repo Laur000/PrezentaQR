@@ -11,25 +11,27 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface PrezentaQRService{
+public interface PrezentaQRService {
 
-    public StudentDTO getStudentData(LoginRequestDTO loginRequestDTO);
+    StudentDTO getStudentData(LoginRequestDTO loginRequestDTO);
 
-    public ProfesorDTO getProfesorData(LoginRequestDTO loginRequestDTO);
+    ProfesorDTO getProfesorData(LoginRequestDTO loginRequestDTO);
 
-    public AdminDTO getAdminData(LoginRequestDTO loginRequestDTO);
+    AdminDTO getAdminData(LoginRequestDTO loginRequestDTO);
 
-    public String saveDiscipline(MaterieDTO materie, String emailProfesor);
+    String saveDiscipline(MaterieDTO materie, String emailProfesor);
 
-    public List<MaterieDTO> getProfDisciplines(ProfRequestDTO request);
+    List<MaterieDTO> getProfDisciplines(ProfRequestDTO request);
 
-    public List<MaterieDTO> getStudentDisciplines(StudentRequestDTO request);
+    List<MaterieDTO> getStudentDisciplines(StudentRequestDTO request);
 
-    public List<CursDTO> getCourses(CoursesRequestDTO request);
+    List<CursDTO> getCourses(CoursesRequestDTO request);
 
-    public String saveCourse(CursDTO materie, Integer disciplineId);
+    String saveCourse(CursDTO materie, Integer disciplineId);
 
     public List<StudentDTO> getAttendance(AttendanceRequestDTO request);
 
-    public StudentDTO saveAttendance(AttendanceDTO attendance);
+    StudentDTO saveAttendance(AttendanceDTO attendance);
+
+    List<MaterieDTO> getAllDisciplines();
 }

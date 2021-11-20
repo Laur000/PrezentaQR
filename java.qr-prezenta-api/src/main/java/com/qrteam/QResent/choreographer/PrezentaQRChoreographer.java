@@ -76,4 +76,8 @@ public class PrezentaQRChoreographer {
     public String getQR(QrDataDTO request) throws IOException {
         return generateQRService.getQR(request);
     }
+
+    public List<MaterieDTO> getAllDisciplines() {
+        return prezentaQRService.getAllDisciplines();
+    }
 }

@@ -60,6 +60,11 @@ public class PrezentaQRController {
         return new ResponseEntity<>(prezentaQRChoreographer.getProfCourses(request), HttpStatus.OK);
     }
 
+    @PostMapping("/get-all-disciplines")
+    ResponseEntity<List<MaterieDTO>> getAlldisciplines() {
+        return new ResponseEntity<>(prezentaQRChoreographer.getAllDisciplines(), HttpStatus.OK);
+    }
+
     @PostMapping("/save-course")
     ResponseEntity<String> saveCourse(@RequestBody SaveCourseDTO saveCourseDTO) {
         return new ResponseEntity<>(prezentaQRChoreographer.saveCourse(saveCourseDTO.getCursDTO(), saveCourseDTO.getDisciplineId()), HttpStatus.OK);

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PrezentaQRServiceImpl implements PrezentaQRService {
@@ -160,5 +161,12 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
             return modelMapper.map(student, StudentDTO.class);
         }
         return null;
+    }
+
+    @Override
+    public List<MaterieDTO> getAllDisciplines() {
+        return  materieDataRepo.getMaterii().stream()
+                .map(element -> modelMapper.map(element, MaterieDTO.class))
+                .collect(Collectors.toList());
     }
 }
