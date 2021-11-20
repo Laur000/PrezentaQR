@@ -35,7 +35,7 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/get-admin-data")
-    ResponseEntity<String> getAdminData(@RequestBody LoginRequestDTO loginRequest) {
+    ResponseEntity<AdminDTO> getAdminData(@RequestBody LoginRequestDTO loginRequest) {
         return new ResponseEntity<>(prezentaQRChoreographer.getAdminData(loginRequest), HttpStatus.OK);
     }
 

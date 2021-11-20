@@ -35,8 +35,9 @@ public class PrezentaQRChoreographer {
         return response;
     }
 
-    public String getAdminData(LoginRequestDTO loginRequest) {
-        return "Hai ca merge admin...   email " + loginRequest.getEmail() + " si parola:" + loginRequest.getPassword();
+    public AdminDTO getAdminData(LoginRequestDTO loginRequest) {
+        AdminDTO respone = prezentaQRService.getAdminData(loginRequest);
+        return respone;
     }
 
     public String saveDiscipline(MaterieDTO materie, String emailProfesor) {

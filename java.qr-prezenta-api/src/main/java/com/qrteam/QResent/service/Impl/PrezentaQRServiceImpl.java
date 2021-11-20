@@ -1,18 +1,12 @@
 package com.qrteam.QResent.service.Impl;
 
 
-import com.qrteam.QResent.databaseMock.CursData;
-import com.qrteam.QResent.databaseMock.MaterieData;
-import com.qrteam.QResent.databaseMock.ProfesorData;
-import com.qrteam.QResent.databaseMock.StudentData;
+import com.qrteam.QResent.databaseMock.*;
 import com.qrteam.QResent.dto.*;
 import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
 import com.qrteam.QResent.dto.requests.ProfRequestDTO;
 import com.qrteam.QResent.dto.requests.StudentRequestDTO;
-import com.qrteam.QResent.models.Curs;
-import com.qrteam.QResent.models.Materie;
-import com.qrteam.QResent.models.Profesor;
-import com.qrteam.QResent.models.Student;
+import com.qrteam.QResent.models.*;
 import com.qrteam.QResent.service.PrezentaQRService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,9 +53,12 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
-    public AdminDTO getAdminData(int id) {
-        AdminDTO adminDTO = new AdminDTO();
-        return adminDTO;
+    public AdminDTO getAdminData(LoginRequestDTO loginRequest) {
+        Admin admin = new Admin();
+        if (admin != null && admin.getPassword().equals(loginRequest.getPassword())) {
+            return modelMapper.map(admin, AdminDTO.class);
+        }
+        return null;
     }
 
     @Override
