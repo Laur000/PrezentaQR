@@ -1,0 +1,30 @@
+.courseContainer {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+}
+
+.course {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 10px;
+  flex: 1;
+}
+
+.title {
+  font-size: larger;
+  font-weight: 600;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.description {
+  font-size: medium;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.qrCodeButton {
+  margin-right: 10px;
+}

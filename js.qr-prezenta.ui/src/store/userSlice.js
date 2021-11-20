@@ -30,7 +30,7 @@ export const userSlice = createSlice({
     updateUserType: (state, action) => {
       state.userType = action.payload;
     },
-    deleteUser : (state, action) => {
+    deleteUser : (state, _) => {
       state.userData = undefined;
     }
   },

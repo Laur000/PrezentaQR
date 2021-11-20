@@ -3,32 +3,6 @@
   padding: 0;
 }
 
-.courseContainer {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-}
-
-.course {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 10px;
-}
-
-.title {
-  font-size: larger;
-  font-weight: 600;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.description {
-  font-size: medium;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
 .buttonContainer {
   display: flex;
   justify-content: space-between;

@@ -28,6 +28,8 @@ const Dashboard = () => {
             theme.colorScheme === "dark"
               ? theme.colors.dark[8]
               : theme.colors.gray[0],
+          overflowY: "auto",
+          height: "93.5vh",
         },
       })}
     >

@@ -1,22 +1,25 @@
-import {
-  Button,
-  Card,
-  Group,
-  List,
-  Text,
-  ThemeIcon,
-  Modal,
-} from "@mantine/core";
+import { Button, List, Modal, Skeleton } from "@mantine/core";
 import React, { useState } from "react";
-import { ArrowLeftIcon, CheckCircledIcon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { useHistory } from "react-router";
-import axios from "axios";
-import { MAIN_URL } from "../../utils/url";
 import { useSelector, useDispatch } from "react-redux";
 import CourseForm from "../../components/CourseForm/CourseForm";
 import styles from "./DisciplinePage.module.css";
 
 import { getProfDisciplineCourses } from "../../store/profDisciplineSlice";
+import CourseCard from "../../components/CourseCard/CourseCard";
+
+const loadingInterface = () => {
+  return (
+    <>
+      {Array(5)
+        .fill(0)
+        .map(() => (
+          <Skeleton height={100} mt={16} radius="xs" />
+        ))}
+    </>
+  );
+};
 
 const DisciplinePage = (props) => {
   const params = props.match.params;
@@ -29,35 +32,23 @@ const DisciplinePage = (props) => {
   const courses = useSelector((state) => state.profDisciplines.courses);
   const disciplines = useSelector((state) => state.profDisciplines.disciplines);
 
-  console.log(selectedDiscipline);
-  console.log(courses);
-
   React.useEffect(() => {
     setSelectedDiscipline(
       disciplines.find((obj) => obj.id === parseInt(params.id))
     );
 
-    dispatch(getProfDisciplineCourses({ id: params.id.toString() }));
+    dispatch(getProfDisciplineCourses({ disciplineId: params.id }));
   }, [params]);
 
-  const mock = [
-    { name: "Cursu unu", description: "Fresh nu-i bine deloc" },
-    { name: "Cursul 2PM", description: "Salutare mos craciun" },
-    {
-      name: "Curva 3",
-      description: "Sa ma arunc de pe camin sau sa ma arunc de pe camin",
-    },
-  ];
+  const loadingDiscipline = () =>
+    !(selectedDiscipline && selectedDiscipline.id === parseInt(params.id));
 
-  const isLoading = () => {
-    return !(
-      selectedDiscipline && selectedDiscipline.id === parseInt(params.id)
-    );
-  };
+  const loadingCourses = () => !courses;
 
   return (
     <div>
-      {!isLoading() && (
+      {(loadingCourses() || loadingDiscipline()) && loadingInterface()}
+      {!loadingDiscipline() && (
         <>
           <Button
             className={styles.goBackButton}
@@ -79,29 +70,22 @@ const DisciplinePage = (props) => {
               Add Course
             </Button>
           </div>
-          <p style={{ margin: "0px 20px 20px 20px", maxWidth: 450 }}>
+          <p
+            style={{
+              margin: "0px 20px 20px 20px",
+              maxWidth: 450,
+              whiteSpace: "pre-line",
+            }}
+          >
             {selectedDiscipline.detalii}
           </p>
           <List spacing="md" listStyleType="none">
-            {mock.map((obj, idx) => (
-              <List.Item>
-                <Card
-                  className={styles.courseContainer}
-                  shadow="sm"
-                  radius="md"
-                >
-                  <ThemeIcon color="teal" size={48} radius="xl">
-                    <CheckCircledIcon style={{ width: 48, height: 48 }} />
-                  </ThemeIcon>
-                  <Group className={styles.course}>
-                    <Text className={styles.title}>{obj.name}</Text>
-                    <Text className={styles.description}>
-                      {obj.description}
-                    </Text>
-                  </Group>
-                </Card>
-              </List.Item>
-            ))}
+            {!loadingCourses() &&
+              courses.map((obj, index) => (
+                <List.Item key={index}>
+                  <CourseCard name={obj.nume} description={obj.detalii} />
+                </List.Item>
+              ))}
           </List>
           <Modal
             opened={modalState}
@@ -110,7 +94,10 @@ const DisciplinePage = (props) => {
             }}
             title="New Course"
           >
-            <CourseForm closeModal={() => setModalState(false)} />
+            <CourseForm
+              closeModal={() => setModalState(false)}
+              selectedDiscipline={selectedDiscipline}
+            />
           </Modal>
         </>
       )}

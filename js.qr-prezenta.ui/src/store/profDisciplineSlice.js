@@ -19,10 +19,15 @@ export const getProfDisciplineCourses = createAsyncThunk(
   "profDiscipline/getDisciplineCourses",
   async ({ disciplineId }) => {
     let ENDPOINT = "get-courses";
+    const headers = {
+      "Content-Type": "application/json",
+    };
 
-    const response = await axios.post(MAIN_URL + ENDPOINT, {
+    const data = {
       disciplineId,
-    });
+    };
+
+    const response = await axios.post(MAIN_URL + ENDPOINT, data, { headers });
 
     console.log(response);
     return response.data;
@@ -37,7 +42,7 @@ export const profDisciplineSlice = createSlice({
     loading: false,
   },
   reducers: {
-    deleteDisciplines: (state, action) => {
+    deleteDisciplines: (state, _) => {
       state.disciplines = null;
     },
     deleteCourses: (state, _) => {
@@ -59,6 +64,5 @@ export const profDisciplineSlice = createSlice({
   },
 });
 
-export const { deleteDisciplines, deleteCourses} =
-  profDisciplineSlice.actions;
+export const { deleteDisciplines, deleteCourses } = profDisciplineSlice.actions;
 export default profDisciplineSlice.reducer;

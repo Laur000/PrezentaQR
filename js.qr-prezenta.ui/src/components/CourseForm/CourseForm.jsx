@@ -2,19 +2,23 @@ import { Button, Input, TextInput } from "@mantine/core";
 import { useNotifications } from "@mantine/notifications";
 import axios from "axios";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { MAIN_URL } from "../../utils/url";
 import styles from "./CourseForm.module.css";
+import { getProfDisciplineCourses } from "../../store/profDisciplineSlice";
 
 const CourseForm = (props) => {
-  let ENDPOINT = "save-course";
   const notifications = useNotifications();
-  const user = useSelector((state) => state.user.userData);
+  const dispatch = useDispatch();
+
   const [newCourse, setNewCourse] = useState({
-    disciplineId: 0, cursDTO:{cursId: 0}
+    disciplineId: 0,
+    cursDTO: { cursId: 0 },
   });
 
   const saveNewCourse = async () => {
+    const ENDPOINT = "save-course";
+
     await axios
       .post(MAIN_URL + ENDPOINT, {
         ...newCourse,
@@ -28,7 +32,14 @@ const CourseForm = (props) => {
             message: "Course successfully added",
             color: "green",
           });
+
           props.closeModal();
+
+          dispatch(
+            getProfDisciplineCourses({
+              disciplineId: props.selectedDiscipline.id,
+            })
+          );
         } else {
           notifications.showNotification({
             title: "Submit new course",
@@ -69,7 +80,7 @@ const CourseForm = (props) => {
         className={styles.button}
         color="teal"
         onClick={() => {
-          saveNewCourse();
+          newCourse.cursDTO.nume && saveNewCourse();
         }}
       >
         Save

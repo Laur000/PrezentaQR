@@ -2,20 +2,25 @@ import { Button, Input, TextInput } from "@mantine/core";
 import { useNotifications } from "@mantine/notifications";
 import axios from "axios";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { MAIN_URL } from "../../utils/url";
 import styles from "./DisciplineForm.module.css";
+import { getProfDisciplines } from "../../store/profDisciplineSlice";
 
 const DisciplineForm = (props) => {
-  let ENDPOINT = "save-discipline";
   const notifications = useNotifications();
+  const dispatch = useDispatch();
+
   const user = useSelector((state) => state.user.userData);
+
   const [newDiscipline, setNewDiscpline] = useState({
     materie: { id: 0, cursuri: [] },
     emailProfesor: user.email,
   });
 
   const saveNewDiscipline = async () => {
+    const ENDPOINT = "save-discipline";
+
     await axios
       .post(MAIN_URL + ENDPOINT, {
         ...newDiscipline,
@@ -29,6 +34,7 @@ const DisciplineForm = (props) => {
             color: "green",
           });
           props.closeModal();
+          dispatch(getProfDisciplines({ email: user.email }));
         } else {
           notifications.showNotification({
             title: "Submit new discipline",
@@ -38,6 +44,7 @@ const DisciplineForm = (props) => {
         }
       });
   };
+
   return (
     <div className={styles.container}>
       <TextInput
@@ -69,7 +76,7 @@ const DisciplineForm = (props) => {
         className={styles.button}
         color="teal"
         onClick={() => {
-          saveNewDiscipline();
+          newDiscipline.materie.nume && saveNewDiscipline();
         }}
       >
         Save
