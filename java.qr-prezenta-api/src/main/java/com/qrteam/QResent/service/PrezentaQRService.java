@@ -2,6 +2,7 @@ package com.qrteam.QResent.service;
 
 
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.dto.requests.AttendanceRequestDTO;
 import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
 import com.qrteam.QResent.dto.requests.ProfRequestDTO;
 import com.qrteam.QResent.dto.requests.StudentRequestDTO;
@@ -28,7 +29,7 @@ public interface PrezentaQRService{
 
     public String saveCourse(CursDTO materie, Integer disciplineId);
 
-    public List<StudentDTO> getAttendance(CoursesRequestDTO request);
+    public List<StudentDTO> getAttendance(AttendanceRequestDTO request);
 
     public StudentDTO saveAttendance(AttendanceDTO attendance);
 }

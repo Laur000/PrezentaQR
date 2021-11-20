@@ -3,6 +3,7 @@ package com.qrteam.QResent.controller;
 
 import com.qrteam.QResent.choreographer.PrezentaQRChoreographer;
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.dto.requests.AttendanceRequestDTO;
 import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
 import com.qrteam.QResent.dto.requests.ProfRequestDTO;
 import com.qrteam.QResent.dto.requests.StudentRequestDTO;
@@ -65,7 +66,7 @@ public class PrezentaQRController {
     }
 
     @PostMapping("/get-attendance")
-    ResponseEntity<List<StudentDTO>> getAttendance(@RequestBody CoursesRequestDTO request) {
+    ResponseEntity<List<StudentDTO>> getAttendance(@RequestBody AttendanceRequestDTO request) {
         return new ResponseEntity<>(prezentaQRChoreographer.getAttendance(request), HttpStatus.OK);
     }
 

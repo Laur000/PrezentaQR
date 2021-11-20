@@ -18,13 +18,13 @@ public class CursData {
 
         List<Student> listaPrezenta =  new ArrayList<>();
 
-        cursuri.add(new Curs(0, "CursAstronomie1", "detalii",listaPrezenta));
+        cursuri.add(new Curs(0, "CursAnatomie1", "detalii",listaPrezenta));
         listaPrezenta = new ArrayList<>();
-        cursuri.add(new Curs(1, "CursAnatomie1", "detalii",listaPrezenta));
+        cursuri.add(new Curs(1, "CursAnatomie2", "detalii",listaPrezenta));
         listaPrezenta = new ArrayList<>();
-        cursuri.add(new Curs(2, "CursAnatomie2", "detalii",listaPrezenta));
+        cursuri.add(new Curs(2, "CursAnatomie3", "detalii",listaPrezenta));
         listaPrezenta = new ArrayList<>();
-        cursuri.add(new Curs(3, "CursAnatomie3", "detalii",listaPrezenta));
+        cursuri.add(new Curs(3, "CursAnatomie4", "detalii",listaPrezenta));
         listaPrezenta = new ArrayList<>();
         cursuri.add(new Curs(4, "CursGeografie1", "detalii",listaPrezenta));
         listaPrezenta = new ArrayList<>();
@@ -89,8 +89,6 @@ public class CursData {
         cursuri.add(new Curs(34, "CursChimie1", "detalii",listaPrezenta));
         listaPrezenta = new ArrayList<>();
         cursuri.add(new Curs(35, "CursChimie2", "detalii",listaPrezenta));
-        listaPrezenta = new ArrayList<>();
-        cursuri.add(new Curs(36, "CursChimie3", "detalii",listaPrezenta));
 
 
     }

@@ -1,6 +1,7 @@
 package com.qrteam.QResent.choreographer;
 
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.dto.requests.AttendanceRequestDTO;
 import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
 import com.qrteam.QResent.dto.requests.ProfRequestDTO;
 import com.qrteam.QResent.dto.requests.StudentRequestDTO;
@@ -60,7 +61,7 @@ public class PrezentaQRChoreographer {
         return prezentaQRService.saveCourse(cursDTO, disciplineId);
     }
 
-    public List<StudentDTO> getAttendance(CoursesRequestDTO request) {
+    public List<StudentDTO> getAttendance(AttendanceRequestDTO request) {
         return prezentaQRService.getAttendance(request);
     }
 

@@ -3,6 +3,7 @@ package com.qrteam.QResent.service.Impl;
 
 import com.qrteam.QResent.databaseMock.*;
 import com.qrteam.QResent.dto.*;
+import com.qrteam.QResent.dto.requests.AttendanceRequestDTO;
 import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
 import com.qrteam.QResent.dto.requests.ProfRequestDTO;
 import com.qrteam.QResent.dto.requests.StudentRequestDTO;
@@ -73,12 +74,13 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
 
     @Override
     public String saveCourse(CursDTO cursDTO, Integer disciplineId) {
+        cursDTO.setCursId(cursDataRepo.getCursuri().size());
         Materie materie = materieDataRepo.findById(disciplineId);
         if (materie == null) {
             return null;
         } else {
-            cursDTO.setCursId(materie.getCursuri().size()+1);
-            materie.getCursuri().add(modelMapper.map(cursDTO, Curs.class));
+            cursDataRepo.getCursuri().add(modelMapper.map(cursDTO, Curs.class));
+            materie.getCursuri().add(cursDTO.getCursId());
             return cursDTO.getNume();
         }
     }
@@ -126,9 +128,10 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     @Override
     public List<CursDTO> getCourses(CoursesRequestDTO request) {
         List<CursDTO> cursDTOList = new ArrayList<>();
-        Materie materie = materieDataRepo.findById(request.getDisciplineId());
-        if (materie != null) {
-            for (Curs curs : materie.getCursuri()) {
+        List<Integer> cursuri = materieDataRepo.findById(request.getDisciplineId()).getCursuri();
+        if (cursuri != null) {
+            for (Integer i : cursuri) {
+                Curs curs = cursDataRepo.findCursById(i);
                 cursDTOList.add(modelMapper.map(curs, CursDTO.class));
             }
             return cursDTOList;
@@ -137,9 +140,9 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
-    public List<StudentDTO> getAttendance(CoursesRequestDTO request){
+    public List<StudentDTO> getAttendance(AttendanceRequestDTO request){
         List<StudentDTO> listaPrezenta = new ArrayList<>();
-        List<Student> listaStudenti = cursDataRepo.findCursById(request.getDisciplineId()).getListaPrezenta();
+        List<Student> listaStudenti = cursDataRepo.findCursById(request.getCourseId()).getListaPrezenta();
         if (listaStudenti != null) {
             for (Student student : listaStudenti) {
                 listaPrezenta.add(modelMapper.map(student, StudentDTO.class));
