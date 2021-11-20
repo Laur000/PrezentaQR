@@ -96,7 +96,7 @@ public class MaterieData {
     }
 
     public void addMaterie(MaterieDTO materie){
-        Materie materieNoua = new Materie(this.materii.size()+1, materie.getNume(), materie.getDetalii(),new ArrayList<>());
+        Materie materieNoua = new Materie(this.materii.size(), materie.getNume(), materie.getDetalii(),new ArrayList<>());
         this.materii.add(materieNoua);
     }
 
