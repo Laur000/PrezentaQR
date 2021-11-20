@@ -31,3 +31,6 @@ Schita flux adaugare materie si curs
 Schita fluxuri student
 ![Schita fluxuri student](https://user-images.githubusercontent.com/57360669/142030222-3b2e64c9-8121-49b5-97c3-043bf86e262d.png)
 
+Logica QR
+![Logica QR](https://user-images.githubusercontent.com/56819922/142723120-8a806b09-dfb8-4ccc-95b3-05ac7bfff4fd.png)
+
