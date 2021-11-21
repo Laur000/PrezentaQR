@@ -18,7 +18,11 @@ const DisciplineCard = ({ name, description, id }) => {
 
   return (
     <div style={{ width: 340, margin: "10px" }}>
-      <Card shadow="sm" padding="lg">
+      <Card
+        shadow="sm"
+        padding="lg"
+        style={{ minHeight: "100%", display: "flex", flexDirection: "column" }}
+      >
         <Card.Section>
           <Image src={img} height={160} alt="Discipline" />
         </Card.Section>
@@ -33,7 +37,10 @@ const DisciplineCard = ({ name, description, id }) => {
           </Badge>
         </Group>
 
-        <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5 }}>
+        <Text
+          size="sm"
+          style={{ color: secondaryColor, lineHeight: 1.5, flex: 1 }}
+        >
           {description}
         </Text>
 

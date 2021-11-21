@@ -29,7 +29,6 @@ export const getProfDisciplineCourses = createAsyncThunk(
 
     const response = await axios.post(MAIN_URL + ENDPOINT, data, { headers });
 
-    console.log(response);
     return response.data;
   }
 );
@@ -50,12 +49,12 @@ export const profDisciplineSlice = createSlice({
     },
   },
   extraReducers: {
-    [getProfDisciplines.pending]: (state, action) => {
-      state.loading = true;
-    },
     [getProfDisciplines.fulfilled]: (state, action) => {
       state.disciplines = action.payload;
       state.loading = false;
+    },
+    [getProfDisciplineCourses.pending]: (state, action) => {
+      state.loading = true;
     },
     [getProfDisciplineCourses.fulfilled]: (state, action) => {
       state.courses = action.payload;
