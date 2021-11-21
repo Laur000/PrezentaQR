@@ -1,4 +1,4 @@
-import { Button, List, Modal, Skeleton } from "@mantine/core";
+import { Button, List, Loader, Modal, Skeleton } from "@mantine/core";
 import React, { useState } from "react";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { useHistory } from "react-router";
@@ -6,7 +6,10 @@ import { useSelector, useDispatch } from "react-redux";
 import CourseForm from "../../components/CourseForm/CourseForm";
 import styles from "./DisciplinePage.module.css";
 
-import { getProfDisciplineCourses } from "../../store/profDisciplineSlice";
+import {
+  deleteCourses,
+  getProfDisciplineCourses,
+} from "../../store/profDisciplineSlice";
 import CourseCard from "../../components/CourseCard/CourseCard";
 
 const loadingInterface = () => {
@@ -31,8 +34,12 @@ const DisciplinePage = (props) => {
 
   const courses = useSelector((state) => state.profDisciplines.courses);
   const disciplines = useSelector((state) => state.profDisciplines.disciplines);
+  const loading = useSelector((state) => state.profDisciplines.loading);
 
   React.useEffect(() => {
+    if (selectedDiscipline && selectedDiscipline.id !== parseInt(params.id))
+      dispatch(deleteCourses());
+
     setSelectedDiscipline(
       disciplines.find((obj) => obj.id === parseInt(params.id))
     );
@@ -43,11 +50,8 @@ const DisciplinePage = (props) => {
   const loadingDiscipline = () =>
     !(selectedDiscipline && selectedDiscipline.id === parseInt(params.id));
 
-  const loadingCourses = () => !courses;
-
   return (
     <div>
-      {(loadingCourses() || loadingDiscipline()) && loadingInterface()}
       {!loadingDiscipline() && (
         <>
           <Button
@@ -80,13 +84,25 @@ const DisciplinePage = (props) => {
             {selectedDiscipline.detalii}
           </p>
           <List spacing="md" listStyleType="none">
-            {!loadingCourses() &&
+            {!loading &&
+              courses &&
               courses.map((obj, index) => (
                 <List.Item key={index}>
-                  <CourseCard name={obj.nume} description={obj.detalii} courseId={obj.cursId} />
+                  <CourseCard
+                    name={obj.nume}
+                    description={obj.detalii}
+                    courseId={obj.cursId}
+                  />
                 </List.Item>
               ))}
           </List>
+          {!loading && courses?.length === 0 && (
+            <h1
+              style={{ textAlign: "center", marginTop: "8rem", width: "100%" }}
+            >
+              You have no courses yet.
+            </h1>
+          )}
           <Modal
             opened={modalState}
             onClose={() => {
