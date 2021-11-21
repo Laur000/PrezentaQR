@@ -28,3 +28,8 @@
 .qrCodeButton {
   margin-right: 10px;
 }
+
+:global(.qr){
+  display: flex;
+  justify-content: center;
+}

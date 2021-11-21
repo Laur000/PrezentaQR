@@ -12,7 +12,7 @@ const CourseForm = (props) => {
   const dispatch = useDispatch();
 
   const [newCourse, setNewCourse] = useState({
-    disciplineId: 0,
+    disciplineId: props.disciplineId,
     cursDTO: { cursId: 0 },
   });
 
