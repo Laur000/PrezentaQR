@@ -20,7 +20,7 @@ public class GenerateQRServiceImpl implements GenerateQRService {
 
         Constants.COURSE_ID = request.getCourseId();
 
-        File file = QRCode.from(Constants.URL).withSize(500, 500).file();
+        File file = QRCode.from(Constants.URL + "/qr-check/courseId=" + Constants.COURSE_ID + "/securityCode=" + Constants.SECURITY_CODE).withSize(500, 500).file();
 
         return Base64.getEncoder().encodeToString(Files.readAllBytes(file.toPath()));
     }

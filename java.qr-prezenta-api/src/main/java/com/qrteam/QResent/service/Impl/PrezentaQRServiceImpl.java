@@ -87,6 +87,18 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
+    public String deleteCourse(CursDTO cursDTO, Integer disciplineId) {
+        Materie materie = materieDataRepo.findById(disciplineId);
+        if (materie == null) {
+            return null;
+        } else {
+            cursDataRepo.getCursuri().remove(modelMapper.map(cursDTO, Curs.class));
+            materie.getCursuri().remove(cursDTO.getCursId());
+            return cursDTO.getNume();
+        }
+    }
+
+    @Override
     public List<MaterieDTO> getProfDisciplines(ProfRequestDTO request) {
         Profesor profesor = new Profesor();
         profesor = profesorDataRepo.getProfesorDataByEmail(request.getEmail());

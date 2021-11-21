@@ -87,7 +87,7 @@ const DisciplinePage = (props) => {
               courses &&
               courses.map((obj, index) => (
                 <List.Item key={index}>
-                  <CourseCard name={obj.nume} description={obj.detalii} />
+                  <CourseCard name={obj.nume} description={obj.detalii} courseId={obj.cursId} />
                 </List.Item>
               ))}
           </List>
@@ -108,6 +108,7 @@ const DisciplinePage = (props) => {
             <CourseForm
               closeModal={() => setModalState(false)}
               selectedDiscipline={selectedDiscipline}
+              disciplineId={params.id}
             />
           </Modal>
         </>

@@ -68,6 +68,11 @@ public class PrezentaQRController {
         return new ResponseEntity<>(prezentaQRChoreographer.saveCourse(saveCourseDTO.getCursDTO(), saveCourseDTO.getDisciplineId()), HttpStatus.OK);
     }
 
+    @PostMapping("/delete-course")
+    ResponseEntity<String> deleteCourse(@RequestBody SaveCourseDTO request) {
+        return new ResponseEntity<>(prezentaQRChoreographer.deleteCourse(request.getCursDTO(), request.getDisciplineId()), HttpStatus.OK);
+    }
+
     @PostMapping("/get-attendance")
     ResponseEntity<List<StudentDTO>> getAttendance(@RequestBody AttendanceRequestDTO request) {
         return new ResponseEntity<>(prezentaQRChoreographer.getAttendance(request), HttpStatus.OK);
