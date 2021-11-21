@@ -37,11 +37,12 @@ const DisciplinePage = (props) => {
   const loading = useSelector((state) => state.profDisciplines.loading);
 
   React.useEffect(() => {
+    if (selectedDiscipline && selectedDiscipline.id !== parseInt(params.id))
+      dispatch(deleteCourses());
+
     setSelectedDiscipline(
       disciplines.find((obj) => obj.id === parseInt(params.id))
     );
-
-    dispatch(deleteCourses());
 
     dispatch(getProfDisciplineCourses({ disciplineId: params.id }));
   }, [params]);
@@ -87,7 +88,11 @@ const DisciplinePage = (props) => {
               courses &&
               courses.map((obj, index) => (
                 <List.Item key={index}>
-                  <CourseCard name={obj.nume} description={obj.detalii} courseId={obj.cursId} />
+                  <CourseCard
+                    name={obj.nume}
+                    description={obj.detalii}
+                    courseId={obj.cursId}
+                  />
                 </List.Item>
               ))}
           </List>
