@@ -17,6 +17,9 @@ public class ProfesorData {
         List<Integer> materii = new ArrayList<>();
 
         materii.add(0);
+        materii.add(7);
+        materii.add(10);
+        materii.add(2);
         profesori.add(new Profesor("6001006035499", "Ion", "Ionel", "emailpentrufacultateprof1@facultate.prof.ro", "parolaprof1",materii));
         materii = new ArrayList<>();
         materii.add(1);
