@@ -77,4 +77,8 @@ public class PrezentaQRChoreographer {
     public List<MaterieDTO> getAllDisciplines() {
         return prezentaQRService.getAllDisciplines();
     }
+
+    public String deleteCourse(CursDTO cursDTO, Integer disciplineId) {
+        return prezentaQRService.deleteCourse(cursDTO, disciplineId);
+    }
 }
