@@ -5,8 +5,9 @@ import { MAIN_URL } from "../utils/url";
 
 export const getProfDisciplines = createAsyncThunk(
   "profDiscipline/getDisciplines",
-  async ({ email }) => {
+  async ({ email, userType }) => {
     let ENDPOINT = "get-prof-disciplines";
+    if (userType === "student") ENDPOINT = "get-student-disciplines";
 
     const response = await axios.post(MAIN_URL + ENDPOINT, {
       email,

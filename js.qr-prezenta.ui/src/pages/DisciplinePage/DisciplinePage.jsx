@@ -35,6 +35,7 @@ const DisciplinePage = (props) => {
   const courses = useSelector((state) => state.profDisciplines.courses);
   const disciplines = useSelector((state) => state.profDisciplines.disciplines);
   const loading = useSelector((state) => state.profDisciplines.loading);
+  const userType = useSelector((state) => state.user.userType);
 
   React.useEffect(() => {
     if (selectedDiscipline && selectedDiscipline.id !== parseInt(params.id))
@@ -64,15 +65,17 @@ const DisciplinePage = (props) => {
           </Button>
           <div className={styles.buttonContainer}>
             <h1 style={{ margin: 0 }}>{selectedDiscipline.nume}</h1>
-            <Button
-              variant="gradient"
-              gradient={{ from: "teal", to: "blue", deg: 60 }}
-              onClick={() => {
-                setModalState(true);
-              }}
-            >
-              Add Course
-            </Button>
+            {userType !== "student" && (
+              <Button
+                variant="gradient"
+                gradient={{ from: "teal", to: "blue", deg: 60 }}
+                onClick={() => {
+                  setModalState(true);
+                }}
+              >
+                Add Course
+              </Button>
+            )}
           </div>
           <p
             style={{

@@ -18,13 +18,15 @@ const loadingInterface = () => {
 const DisciplineList = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.userData);
+  const userType = useSelector((state) => state.user.userType);
+
   const profDisciplines = useSelector(
     (state) => state.profDisciplines.disciplines
   );
   
   React.useEffect(() => {
     setTimeout(() => {
-      dispatch(getProfDisciplines({ email: user.email }));
+      dispatch(getProfDisciplines({ email: user.email, userType }));
     }, 500);
   }, []);
 

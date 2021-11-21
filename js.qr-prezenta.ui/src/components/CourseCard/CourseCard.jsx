@@ -3,10 +3,12 @@ import { CheckCircledIcon } from "@radix-ui/react-icons";
 import React, { useState } from "react";
 import styles from "./CourseCard.module.css";
 import axios from "axios";
-import { MAIN_URL } from "../../utils/url";
 import { useSelector } from "react-redux";
+import { MAIN_URL } from "../../utils/url";
 
 const CourseCard = ({ name, description, courseId, ...props }) => {
+  const userType = useSelector((state) => state.user.userType);
+
   const [QR, setQR] = useState({});
   const [qrModal, setQrModal] = useState(false);
 
@@ -14,7 +16,9 @@ const CourseCard = ({ name, description, courseId, ...props }) => {
     let ENDPOINT = "get-QR";
     await axios
       .post(MAIN_URL + ENDPOINT, { courseId: courseId })
-      .then((res) => {setQR(res.data); console.log(res.data)});
+      .then((res) => {
+        setQR(res.data);
+      });
   };
 
   return (
@@ -27,20 +31,27 @@ const CourseCard = ({ name, description, courseId, ...props }) => {
           <Text className={styles.title}>{name}</Text>
           <Text className={styles.description}>{description}</Text>
         </Group>
-        <div>
-          <Button
-            className={styles.qrCodeButton}
-            onClick={() => {
-              getQrCode();
-              setQrModal(true);
-            }}
-          >
-            QR CODE
-          </Button>
-          <Button color="red">Close</Button>
-        </div>
+        {userType !== "student" && (
+          <div>
+            <Button
+              className={styles.qrCodeButton}
+              onClick={() => {
+                getQrCode();
+                setQrModal(true);
+              }}
+            >
+              QR CODE
+            </Button>
+            <Button color="red">Close</Button>
+          </div>
+        )}
       </Card>
-      <Modal opened={qrModal} onClose={() => setQrModal(false)} title={name} size="lg">
+      <Modal
+        opened={qrModal}
+        onClose={() => setQrModal(false)}
+        title={name}
+        size="lg"
+      >
         <div className="qr">
           <img src={"data:image/png;base64, " + QR} alt="QR" />
         </div>
