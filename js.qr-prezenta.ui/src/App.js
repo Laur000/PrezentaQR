@@ -5,6 +5,7 @@ import Login from "./pages/LoginPage/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import { useSelector } from "react-redux";
 import "./App.css";
+import AttendanceLogin from "./pages/AttendanceLogin/AttendanceLogin";
 
 function App() {
   const user = useSelector((state) => state.user.userData);
@@ -23,6 +24,10 @@ function App() {
         render={(props) =>
           user ? <Dashboard {...props} /> : <Redirect to="/" />
         }
+      />
+      <Route
+        path="/qr-check/courseId=:courseId/securityCode=:securityCode"
+        render={(props) => <AttendanceLogin {...props} />}
       />
     </Switch>
   );

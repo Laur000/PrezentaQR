@@ -51,8 +51,8 @@ const LoginForm = (props) => {
         </div>
         <TextInput
           className={styles.field}
-          placeholder="Username"
-          label="Username"
+          placeholder="Email"
+          label="Email"
           required
           value={formData.email}
           onChange={(event) =>
