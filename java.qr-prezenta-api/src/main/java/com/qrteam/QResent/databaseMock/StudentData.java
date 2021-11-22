@@ -17,7 +17,7 @@ public class StudentData {
         List<Integer> materii = new ArrayList<>();
 
         materii.add(0);
-        students.add(new Student("6211008017937", "Andrei", "Bagiu", "emailpentrufacultatefake1@facultate.stud.ro", "414AA", 4, "parolafake1", materii));
+        students.add(new Student("6211008017937", "Marius-Andrei", "Bînă", "mariusb@facultate.stud.ro", "smecher", 4, "parolafake1", materii));
         materii = new ArrayList<>();
         materii.add(1);
         students.add(new Student("6211009017673", "Eduard", "Toea", "emailpentrufacultatefake2@facultate.stud.ro","341C2", 3, "parolafake2", materii));
