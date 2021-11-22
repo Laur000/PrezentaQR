@@ -3,10 +3,7 @@ package com.qrteam.QResent.service.Impl;
 
 import com.qrteam.QResent.databaseMock.*;
 import com.qrteam.QResent.dto.*;
-import com.qrteam.QResent.dto.requests.AttendanceRequestDTO;
-import com.qrteam.QResent.dto.requests.CoursesRequestDTO;
-import com.qrteam.QResent.dto.requests.ProfRequestDTO;
-import com.qrteam.QResent.dto.requests.StudentRequestDTO;
+import com.qrteam.QResent.dto.requests.*;
 import com.qrteam.QResent.models.*;
 import com.qrteam.QResent.service.PrezentaQRService;
 import com.qrteam.QResent.utils.Constants;
@@ -141,9 +138,9 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     }
 
     @Override
-    public List<CursDTO> getCourses(CoursesRequestDTO request) {
+    public List<CursDTO> getCourses(DisciplineRequestDto request) {
         List<CursDTO> cursDTOList = new ArrayList<>();
-        List<Integer> cursuri = materieDataRepo.findById(request.getCursId()).getCursuri();
+        List<Integer> cursuri = materieDataRepo.findById(request.getDisciplineId()).getCursuri();
         if (cursuri != null) {
             for (Integer i : cursuri) {
                 Curs curs = cursDataRepo.findCursById(i);

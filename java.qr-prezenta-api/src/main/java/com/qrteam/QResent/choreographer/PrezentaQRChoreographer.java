@@ -50,7 +50,7 @@ public class PrezentaQRChoreographer {
         return prezentaQRService.getStudentDisciplines(request);
     }
 
-    public List<CursDTO> getProfCourses(CoursesRequestDTO request) {
+    public List<CursDTO> getProfCourses(DisciplineRequestDto request) {
         return prezentaQRService.getCourses(request);
     }
 
