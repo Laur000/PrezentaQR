@@ -1,13 +1,13 @@
 package com.qrteam.QResent.dto.requests;
 
 public class CoursesRequestDTO {
-    private Integer disciplineId;
+    private Integer cursId;
 
-    public Integer getDisciplineId() {
-        return disciplineId;
+    public Integer getCursId() {
+        return cursId;
     }
 
-    public void setDisciplineId(Integer disciplineId) {
-        this.disciplineId = disciplineId;
+    public void setCursId(Integer cursId) {
+        this.cursId = cursId;
     }
 }
