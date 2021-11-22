@@ -15,6 +15,7 @@ const CourseCard = ({ name, description, courseId, ...props }) => {
   const [PDF, setPDF] = useState({});
   const [pdfModal, setPdfModal] = useState(false);
   const [attendanceData, setAttendanceData] = useState(0);
+  const [inv, setInv] = useState(() => {});
 
   const getQrCode = async () => {
     let ENDPOINT = "get-QR";
@@ -26,11 +27,13 @@ const CourseCard = ({ name, description, courseId, ...props }) => {
   };
   const getAttendanceData = () => {
     let ENDPOINT = "get-attendance";
-    setInterval(() => {
+    let localInv;
+    localInv = setInterval(() => {
       axios.post(MAIN_URL + ENDPOINT, { courseId: courseId }).then((res) => {
         setAttendanceData(res.data.length);
       });
     }, 5000);
+    setInv(localInv);
   };
   const exportAttendance = async () => {
     let ENDPOINT = "export-attendance-list";
@@ -40,9 +43,12 @@ const CourseCard = ({ name, description, courseId, ...props }) => {
   };
 
   React.useEffect(() => {
-
-    attendanceData && getAttendanceData();
-  }, [attendanceData]);
+    
+    if (courseId) {
+      getAttendanceData();
+    }
+    return clearInterval(inv);
+  }, [courseId]);
 
   return (
     <>
