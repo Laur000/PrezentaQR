@@ -143,7 +143,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     @Override
     public List<CursDTO> getCourses(CoursesRequestDTO request) {
         List<CursDTO> cursDTOList = new ArrayList<>();
-        List<Integer> cursuri = materieDataRepo.findById(request.getDisciplineId()).getCursuri();
+        List<Integer> cursuri = materieDataRepo.findById(request.getCursId()).getCursuri();
         if (cursuri != null) {
             for (Integer i : cursuri) {
                 Curs curs = cursDataRepo.findCursById(i);
