@@ -111,7 +111,7 @@ public class CursData {
 
     public void addAttendance(Integer courseId, Student student){
         for (Curs curs: cursuri) {
-            if (Objects.equals(curs.getCursId(), courseId)) {
+            if (!curs.getListaPrezenta().contains(student) && Objects.equals(curs.getCursId(), courseId)) {
                 curs.getListaPrezenta().add(student);
             }
         }
