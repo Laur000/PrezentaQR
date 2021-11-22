@@ -131,7 +131,7 @@ const AttendanceLogin = (props) => {
             </div>
           </div>
         </Modal>
-      </div>
+-      </div>
     </div>
   );
 };
