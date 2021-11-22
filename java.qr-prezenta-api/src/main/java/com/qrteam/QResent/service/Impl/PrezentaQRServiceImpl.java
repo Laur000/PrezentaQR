@@ -9,10 +9,12 @@ import com.qrteam.QResent.dto.requests.ProfRequestDTO;
 import com.qrteam.QResent.dto.requests.StudentRequestDTO;
 import com.qrteam.QResent.models.*;
 import com.qrteam.QResent.service.PrezentaQRService;
+import com.qrteam.QResent.utils.Constants;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.invoke.ConstantCallSite;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -141,7 +143,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     @Override
     public List<CursDTO> getCourses(CoursesRequestDTO request) {
         List<CursDTO> cursDTOList = new ArrayList<>();
-        List<Integer> cursuri = materieDataRepo.findById(request.getDisciplineId()).getCursuri();
+        List<Integer> cursuri = materieDataRepo.findById(request.getCursId()).getCursuri();
         if (cursuri != null) {
             for (Integer i : cursuri) {
                 Curs curs = cursDataRepo.findCursById(i);
@@ -168,7 +170,7 @@ public class PrezentaQRServiceImpl implements PrezentaQRService {
     @Override
     public StudentDTO saveAttendance(AttendanceDTO attendance){
         Student student = studentDataRepo.getStudentDataByEmail(attendance.getEmail());
-        if (student != null && student.getParola().equals(attendance.getPassword())) {
+        if (attendance.getSecurityCode() == Constants.SECURITY_CODE && student != null && student.getParola().equals(attendance.getPassword())) {
             cursDataRepo.addAttendance(attendance.getCourseId(),student);
             return modelMapper.map(student, StudentDTO.class);
         }

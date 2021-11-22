@@ -31,7 +31,7 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
     @Override
     public String print(CoursesRequestDTO request) {
         try {
-            Curs curs = cursDataRepo.getCursById(request.getDisciplineId());
+            Curs curs = cursDataRepo.getCursById(request.getCursId());
             if (curs != null) {
                 Document document = new Document(PageSize.A4);
                 PdfWriter.getInstance(document, new FileOutputStream(PDF_PATH));
