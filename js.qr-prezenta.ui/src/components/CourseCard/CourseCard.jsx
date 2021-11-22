@@ -40,7 +40,7 @@ const CourseCard = ({ name, description, courseId, ...props }) => {
   const exportAttendance = async () => {
     let ENDPOINT = "export-attendance-list";
     await axios
-      .post(MAIN_URL + ENDPOINT, { disciplineId: courseId })
+      .post(MAIN_URL + ENDPOINT, { cursId: courseId })
       .then((res) => {
         console.log(res)
         setPDF(res.data);
@@ -90,10 +90,10 @@ const CourseCard = ({ name, description, courseId, ...props }) => {
         opened={pdfModal}
         onClose={() => setPdfModal(false)}
         title={name}
-        size="lg"
+        size="70%"
       >
         <div className="qr">
-          <iframe src={"data:application/pdf;base64," + PDF}/>
+          <iframe src={"data:application/pdf;base64," + PDF} height="650px" width="900px"/>
         </div>
       </Modal>
     </>
